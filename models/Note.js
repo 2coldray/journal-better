@@ -14,7 +14,7 @@ const NoteSchema = new Schema({
     user_commits: {
         type: String,
         required: true
-    }
+    },
     user_overall_mood: {
         type: Number,
     }
