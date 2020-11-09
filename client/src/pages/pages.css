@@ -1,0 +1,39 @@
+#home-card {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.fas {
+  font-size: 60px;
+}
+
+.far {
+  font-size: 60px;
+}
+
+.home {
+  background-image: url("../assets/images/relax-bg.jpg");
+  background-size: contain;
+  
+
+}
+
+#home-card-2 {
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+
+  #home-card-3 {
+    font-weight: bold;
+    opacity: .7;
+    line-height: 1.7;
+  }
+
+  #home-card-4 {
+    font-weight: bold;
+    opacity: .7
+  }
+
+  
+                                        
