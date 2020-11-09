@@ -5,7 +5,7 @@ const NoteSchema = new Schema({
     name: String,
     datetime: {
         type: String,
-        required: true
+        // required: true
     },
     user_plans: {
         type: String,
@@ -13,7 +13,7 @@ const NoteSchema = new Schema({
     },
     user_commits: {
         type: String,
-        required: true
+        // required: true
     },
     user_overall_mood: {
         type: Number,
