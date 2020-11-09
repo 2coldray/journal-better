@@ -15,7 +15,10 @@ router.post("/api/addNote/:id", (req, res) => {
       user_plans: user_plans,
     })
       .then((newNote) => {
-        db.User.findOneAndUpdate({ _id: req.params.id }, {$push: { notes: newNote._id }})
+        db.User.findOneAndUpdate(
+          { _id: req.params.id },
+          { $push: { notes: newNote._id } }
+        )
           .then((response) => {
             console.log(response);
             res.status(200).send("Note added");
@@ -41,7 +44,8 @@ router.post("/api/addNote/:id", (req, res) => {
 });
 
 router.get("/api/allNotes/:id", (req, res) => {
-  db.User.findOne({ id: req.params.id })
+  db.User.findOne({ _id: req.params.id })
+    .populate("notes")
     .then((user) => {
       console.log(user);
       res.status(200).json({
