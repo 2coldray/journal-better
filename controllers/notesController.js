@@ -15,7 +15,7 @@ router.post("/api/addNote/:id", (req, res) => {
       user_plans: user_plans,
     })
       .then((newNote) => {
-        db.User.findOneAndUpdate({ id: req.params.id }, { notes: newNote._id })
+        db.User.findOneAndUpdate({ _id: req.params.id }, {$push: { notes: newNote._id }})
           .then((response) => {
             console.log(response);
             res.status(200).send("Note added");
