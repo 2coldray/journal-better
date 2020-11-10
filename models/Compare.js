@@ -14,12 +14,10 @@ const CompareSchema = new Schema({
     user_overall_mood: {
         type: Number,
     },
-    notes: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Note"
-        }
-    ]
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
+    }
 })
 
 const Compare = mongoose.model("Compare", CompareSchema);

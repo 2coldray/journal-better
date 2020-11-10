@@ -47,16 +47,38 @@ router.get("/api/allNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
     .then((user) => {
-      console.log(user);
+      console.log(user.notes);
+      let todayNotes = [];
+      for (i = 0; i < user.notes.length; i++) {
+        if (user.notes[i].datetime === "Wednesday") {
+          todayNotes.push(user.notes[i]);
+          console.log(todayNotes);
+        }
+      }
       res.status(200).json({
         error: false,
-        data: user,
+        data: todayNotes,
         message: "User notes connected to them",
       });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
+        error: true,
+        data: null,
+        message: "Messed up. Try again",
+      });
+    });
+});
+
+router.delete("/api/deleteNote/:id", (req, res) => {
+  db.Note.findByIdAndDelete({ _id: req.params.id })
+    .then((DeletedNote) => {
+      res.json({ error: false, data: DeletedNote, message: "Note delete" });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
         error: true,
         data: null,
         message: "Messed up. Try again",
