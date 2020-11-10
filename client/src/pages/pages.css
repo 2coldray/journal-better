@@ -4,20 +4,20 @@
   margin-top: 30px;
 }
 
-.fas {
+#fas {
   font-size: 60px;
 }
 
-.far {
+#far {
   font-size: 60px;
 }
 
-.day-background-img {
+/* .day-background-img {
   background-image: url("../assets/images/nightWriting.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height:100%;
-}
+} */
 
 .summary-card {
   margin-top: 15px;
@@ -30,7 +30,7 @@
 
 }
 
-.home {
+body {
   background-image: url("../assets/images/relax-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -55,6 +55,7 @@
     font-weight: bold;
     opacity: .7
   }
+
 
   
                                         
