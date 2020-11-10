@@ -3,6 +3,7 @@ import "./pages.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import { response } from "express";
 
 const Auth = () => {
   const { setJwt } = useContext(AuthContext);
@@ -13,26 +14,44 @@ const Auth = () => {
   const [password, setPassword] = useState("");
 
   const handleFirstNameInputChange = (e) => {
-      const {value} = e.target;
-      setFirstName(value);
-  }
+    const { value } = e.target;
+    setFirstName(value);
+  };
 
   const handleLastNameInputChange = (e) => {
-      const {value} = e.target;
-      setLastName(value);
-  }
+    const { value } = e.target;
+    setLastName(value);
+  };
 
   const handleEmailAddressInput = (e) => {
-      const {value} = e.target;
-      setEmailAddress(value);
-  }
+    const { value } = e.target;
+    setEmailAddress(value);
+  };
 
   const handlePasswordInputChange = (e) => {
-      const {value} = e.target;
-      setPassword(value);
-  }
+    const { value } = e.target;
+    setPassword(value);
+  };
 
-
+  const handleSignUpFormSubmit = (
+    e,
+    firstName,
+    lastName,
+    emailAddress,
+    password
+  ) => {
+    e.preventDefault();
+    axios
+      .post("/api/signup", { firstName, lastName, emailAddress, password })
+      .then((response) => {
+        console.log(response.data);
+        setJwt(response.data.data);
+        history.push("/Home");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="auth">
@@ -175,7 +194,11 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className="col-sm-12 text-center">
-                    <button type="button" class="btn btn-primary">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      onClick={handleSignUpFormSubmit}
+                    >
                       Sign-Up
                     </button>
                     <br />
