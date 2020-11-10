@@ -1,9 +1,12 @@
 import React from "react";
 import "./pages.css";
+import Header from "../components/Header/Header";
 
 const Week = () => {
   return (
-    <div class="home">
+    <div class="day-background-img">
+<Header />
+    <div>
       <div class="row">
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
@@ -91,6 +94,7 @@ const Week = () => {
         </div>
 
       </div>
+    </div>
     </div>
   );
 };

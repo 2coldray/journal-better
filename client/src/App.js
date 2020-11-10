@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week"
 import Footer from "./components/Footer/Footer";
+import DaySummary from "./pages/DaySummary";
 
 function App() {
   const [jwt, setJwt] = useState("");
@@ -45,6 +46,7 @@ function App() {
     <Route exact path="/Auth" component={Auth}/>
         <Route exact path="/Home" component={Home}/>
         <Route exact path="/Week" component={Week}/>
+        <Route exact path="/DaySummary" component={DaySummary}/>
 //         <Route exact path="/" component={Auth}/>
             <Route exact path='/' component={Home} />
           </Switch>
