@@ -16,6 +16,7 @@ app.use(express.static("client/build"));
 // Routes
 app.use(require("./controllers/authController.js"));
 app.use(require("./controllers/notesController.js"));
+app.use(require("./controllers/compareController.js"));
 
 // Mongoose Middleware
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-3", {
