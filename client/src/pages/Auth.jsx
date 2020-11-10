@@ -3,7 +3,7 @@ import "./pages.css";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import { response } from "express";
+// import { response } from "express";
 
 const Auth = () => {
   const { setJwt } = useContext(AuthContext);
@@ -44,6 +44,7 @@ const Auth = () => {
     axios
       .post("/api/signup", { firstName, lastName, emailAddress, password })
       .then((response) => {
+        console.log(response);
         console.log(response.data);
         setJwt(response.data.data);
         history.push("/Home");
