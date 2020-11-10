@@ -12,6 +12,16 @@
   font-size: 60px;
 }
 
+.summary-card {
+  margin-top: 15px;
+}
+
+.summary {
+  background-image: url("../assets/images/writing.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .home {
   background-image: url("../assets/images/relax-bg.jpg");
   background-size: cover;
