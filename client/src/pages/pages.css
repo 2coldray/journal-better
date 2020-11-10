@@ -33,27 +33,31 @@
   background-image: url("../assets/images/relax-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  
-
 }
 
 #home-card-2 {
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-top: 29px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 29px;
+}
 
-  }
+#home-card-3 {
+  font-weight: bold;
+  opacity: 0.7;
+  line-height: 1.7;
+}
 
-  #home-card-3 {
-    font-weight: bold;
-    opacity: .7;
-    line-height: 1.7;
-  }
+#home-card-4 {
+  font-weight: bold;
+  opacity: 0.7;
+}
 
-  #home-card-4 {
-    font-weight: bold;
-    opacity: .7
-  }
+.auth {
+  background-image: url("../assets/images/auth-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-  
-                                        
+#auth-text {
+  padding-top: 30px;
+}
