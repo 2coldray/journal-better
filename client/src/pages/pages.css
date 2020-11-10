@@ -12,6 +12,12 @@
   font-size: 60px;
 }
 
+.day-background-img {
+  background-image: url("../assets/images/nightWriting.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:100%;
+
 .summary-card {
   margin-top: 15px;
 }
@@ -20,6 +26,7 @@
   background-image: url("../assets/images/writing.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+
 }
 
 .home {
