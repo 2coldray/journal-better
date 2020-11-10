@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week";
 import Footer from "./components/Footer/Footer";
+import DaySummary from "./pages/DaySummary";
 
 function App() {
   const [jwt, setJwt] = useState("");
@@ -42,11 +43,20 @@ function App() {
       <Router>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
+<<<<<<< HEAD
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
             <Route exact path="/Week" component={Week} />
             <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
+=======
+    <Route exact path="/Auth" component={Auth}/>
+        <Route exact path="/Home" component={Home}/>
+        <Route exact path="/Week" component={Week}/>
+        <Route exact path="/DaySummary" component={DaySummary}/>
+//         <Route exact path="/" component={Auth}/>
+            <Route exact path='/' component={Home} />
+>>>>>>> 2ef250ff357a0b22ec94819d085864eaf637d477
           </Switch>
           <Footer />
         </AuthContext.Provider>
