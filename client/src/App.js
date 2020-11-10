@@ -5,7 +5,7 @@ import { setAxiosDefaults } from "./utils/axiosDefaults";
 import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
-import Week from "./pages/Week"
+import Week from "./pages/Week";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -38,15 +38,15 @@ function App() {
   }, [jwt]);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
-    <Route exact path="/Auth" component={Auth}/>
-        <Route exact path="/Home" component={Home}/>
-        <Route exact path="/Week" component={Week}/>
-//         <Route exact path="/" component={Auth}/>
-            <Route exact path='/' component={Home} />
+            <Route exact path="/Auth" component={Auth} />
+            <Route exact path="/Home" component={Home} />
+            <Route exact path="/Week" component={Week} />
+            // <Route exact path="/" component={Auth} />
+            <Route exact path="/" component={Home} />
           </Switch>
           <Footer />
         </AuthContext.Provider>
