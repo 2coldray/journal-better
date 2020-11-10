@@ -3,12 +3,11 @@ import "./pages.css";
 
 const Week = () => {
   return (
-    <div class="home">
+    <div class="container">
       <div class="row">
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 1</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -18,7 +17,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 2</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -28,7 +26,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 3</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -38,7 +35,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 4</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -50,7 +46,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 5</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -60,7 +55,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 6</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -70,7 +64,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">Day 7</h5>
-
             <p class="card-text">TEXT HERE</p>
             <a href="" class="card-link">
               Open your journal...
@@ -80,7 +73,6 @@ const Week = () => {
         <div class="col-md-3">
           <div class="card-body" id="home-card-2">
             <h5 class="card-title">1 Week</h5>
-
             <p class="card-text">
               Take some time to reflect on the week.
                 </p>
@@ -89,7 +81,6 @@ const Week = () => {
                 </a>
           </div>
         </div>
-
       </div>
     </div>
   );

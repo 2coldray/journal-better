@@ -5,7 +5,7 @@ import { setAxiosDefaults } from "./utils/axiosDefaults";
 import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
-import Week from "./pages/Week"
+import Week from "./pages/Week";
 import Footer from "./components/Footer/Footer";
 
 function App() {
