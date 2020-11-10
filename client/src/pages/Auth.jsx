@@ -1,5 +1,6 @@
 import React from 'react';
 import "./pages.css"
+import axios from "axios";
 
 const Auth = () => {
     return (
@@ -14,7 +15,7 @@ const Auth = () => {
                     <button type="button" className="btn-lg btn-primary" data-toggle="modal" data-target="#signup">Sign-Up</button><br /><br /><br /><br />
                 </div>
                 <div className="col-sm-12 text-center">
-                    <h5 className="text-center">Already a member?</h5><br />
+                    <h5 className="text-center">Already a Member?</h5><br />
                     <button type="button" className="btn-lg btn-primary" data-toggle="modal" data-target="#login">Login</button><br /><br /><br /><br /><br /><br /><br />
                 </div>
                 <div class="modal fade" id="signup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,7 +61,7 @@ const Auth = () => {
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div><br/><br/>
+                            </div><br /><br />
                             <div className="container">
                                 <form>
                                     <div className="input-group-prepend">
