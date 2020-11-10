@@ -26,10 +26,10 @@ const Home = () => {
                   <br />
                   <div className='row'>
                     <div className='col-sm-6 text-center'>
-                      <i className='fas fa-user-clock'></i>
+                      <i className='fas fa-user-clock'id="fas"></i>
                     </div>
                     <div className='col-sm-6 text-center'>
-                      <i className='far fa-calendar-alt'></i>
+                      <i className='far fa-calendar-alt' id="far"></i>
                     </div>
                   </div>
                 </div>
@@ -48,24 +48,24 @@ const Home = () => {
                   <br />
                   <div className='row'>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-heart'></i>
+                      <i className='fas fa-heart' id="fas"></i>
                     </div>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-praying-hands'></i>
+                      <i className='fas fa-praying-hands' id="fas"></i>
                     </div>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-biking'></i>
+                      <i className='fas fa-biking' id="fas"></i>
                       <br />
                       <br />
                     </div>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-gamepad'></i>
+                      <i className='fas fa-gamepad' id="fas"></i>
                     </div>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-bed'></i>
+                      <i className='fas fa-bed' id="fas"></i>
                     </div>
                     <div className='col-sm-4 text-center'>
-                      <i className='fas fa-briefcase'></i>
+                      <i className='fas fa-briefcase' id="fas"></i>
                     </div>
                   </div>
                 </div>
@@ -94,10 +94,10 @@ const Home = () => {
                   <br />
                   <div className='row'>
                     <div className='col-sm-4 mx-auto'>
-                      <i className='fas fa-book-reader'></i>
+                      <i className='fas fa-book-reader' id="fas"></i>
                     </div>
                     <div className='col-sm-4'>
-                      <i className='fas fa-pen'></i>
+                      <i className='fas fa-pen' id="fas"></i>
                     </div>
                   </div>
                 </div>
