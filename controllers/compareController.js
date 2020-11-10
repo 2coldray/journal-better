@@ -3,12 +3,12 @@ const router = express.Router();
 const db = require("../models");
 
 //TODO: Post Route
-
-
+router.post
 
 //TODO: Get Route
 router.get("/api/compareNotes/:id", (req, res) => {
-  db.Compare.findOne({ _id: req.params.id }).populate()
+  db.Compare.findOne({ _id: req.params.id })
+    .populate("notes")
     .then((compareNotes) => {
       console.log(compareNotes),
         res.status(200).json({
