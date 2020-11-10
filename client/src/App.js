@@ -45,7 +45,7 @@ function App() {
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
             <Route exact path="/Week" component={Week} />
-            // <Route exact path="/" component={Auth} />
+            <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
           </Switch>
           <Footer />
