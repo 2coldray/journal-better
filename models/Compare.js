@@ -13,6 +13,10 @@ const CompareSchema = new Schema({
     },
     user_overall_mood: {
         type: Number,
+    },
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
 })
 
