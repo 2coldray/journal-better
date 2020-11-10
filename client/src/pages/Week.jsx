@@ -93,6 +93,7 @@ const Week = () => {
             </div>
           </div>
       <Footer />
+      </div>
     </div>
   );
 };
