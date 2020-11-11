@@ -1,6 +1,7 @@
 import React from "react";
 import "./pages.css";
 import Header from "../components/Header/Header";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
                   <br />
                   <div className='row'>
                     <div className='col-sm-6 text-center'>
-                      <i className='fas fa-user-clock'id="fas"></i>
+                      <i className='fas fa-user-clock' id="fas"></i>
                     </div>
                     <div className='col-sm-6 text-center'>
                       <i className='far fa-calendar-alt' id="far"></i>
@@ -131,8 +132,8 @@ const Home = () => {
           </div>
           <div className='row'>
             <div className='col-sm-12 text-center'>
-              <button type='button' class='btn btn-info'>
-                Let's Get Started!
+              <button type='button' className='btn btn-info' id="home-button">
+                <Link to="/week" className="week-link">Let's Get Started!</Link>
               </button>
               <br />
               <br />
