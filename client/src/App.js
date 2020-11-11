@@ -39,7 +39,7 @@ function App() {
   }, [jwt]);
 
   return (
-    <div className="App">
+    <div className='App'>
       <Router>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
