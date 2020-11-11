@@ -42,7 +42,12 @@ const Auth = () => {
   ) => {
     e.preventDefault();
     axios
-      .post("/api/signup", { firstName, lastName, emailAddress, password })
+      .post("/api/signup", {
+        firstName: firstName,
+        lastName: lastName,
+        emailAddress: emailAddress,
+        password: password,
+      })
       .then((response) => {
         console.log(response);
         console.log(response.data);
@@ -129,7 +134,17 @@ const Auth = () => {
               <br />
               <br />
               <div className='container'>
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    handleSignUpFormSubmit(
+                      e,
+                      firstName,
+                      lastName,
+                      emailAddress,
+                      password
+                    );
+                  }}
+                >
                   <div className='input-group-prepend'>
                     <span className='input-group-text'>
                       <i className='fas fa-user'></i>
@@ -195,11 +210,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button
-                      type='button'
-                      class='btn btn-primary'
-                      onClick={handleSignUpFormSubmit}
-                    >
+                    <button type='submit' class='btn btn-primary'>
                       Sign-Up
                     </button>
                     <br />
