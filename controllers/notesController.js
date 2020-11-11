@@ -71,6 +71,29 @@ router.get("/api/allNotes/:id", (req, res) => {
     });
 });
 
+router.put("/api/note/:id", (req, res) => {
+  db.Note.findByIdAndUpdate(
+    { _id: req.params.id },
+    { user_plans: req.body.user_plans },
+    { new: true }
+  )
+    .then((updatedNote) => {
+      res.json({
+        error: false,
+        data: updatedNote,
+        message: "Note Updated",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        error: true,
+        data: null,
+        message: "Fail to update note",
+      });
+    });
+});
+
 router.delete("/api/deleteNote/:id", (req, res) => {
   db.Note.findByIdAndDelete({ _id: req.params.id })
     .then((DeletedNote) => {
