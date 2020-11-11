@@ -6,7 +6,6 @@ const Week = () => {
   return (
 
     <>
-      <Header />
       <div className="day-background-img">
         <div className="container">
           <div className="row">
