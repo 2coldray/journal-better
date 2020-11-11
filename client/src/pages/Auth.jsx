@@ -59,6 +59,20 @@ const Auth = () => {
       });
   };
 
+  const handleLoginFormSubmit = (e, emailAddress, password) => {
+    e.preventDefault();
+    axios
+      .post("/api/login", { emailAddress, password })
+      .then((response) => {
+        console.log(response.data);
+        setJwt(response.data.data);
+        history.push("/Week");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className='auth'>
       <h2 className='text-center' id='auth-text'>
@@ -246,7 +260,11 @@ const Auth = () => {
               <br />
               <br />
               <div className='container'>
-                <form>
+                <form
+                  onSubmit={(e) => {
+                    handleLoginFormSubmit(e, emailAddress, password);
+                  }}
+                >
                   <div className='input-group-prepend'>
                     <span className='input-group-text'>
                       <i className='fas fa-envelope'></i>
@@ -257,6 +275,8 @@ const Auth = () => {
                       className='form-control'
                       name='email'
                       placeholder='Email'
+                      value={emailAddress}
+                      onChange={handleEmailAddressInput}
                     />
                   </div>
                   <br />
@@ -271,12 +291,14 @@ const Auth = () => {
                       className='form-control'
                       name='password'
                       placeholder='Password'
+                      value={password}
+                      onChange={handlePasswordInputChange}
                     />
                   </div>
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='button' class='btn btn-primary'>
+                    <button type='submit' class='btn btn-primary'>
                       Login
                     </button>
                     <br />
