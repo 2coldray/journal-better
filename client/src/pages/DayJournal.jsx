@@ -10,10 +10,6 @@ const DayJournal = () => {
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Provident magnam, placeat laboriosam et aperiam ex est ullam,
-                sed minima neque, omnis veritatis natus perferendis adipisci!
-                Accusamus reprehenderit similique minima aliquid.
               </p>
               <a href="#" class="card-link">
                 Card link

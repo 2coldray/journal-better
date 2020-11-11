@@ -4,20 +4,20 @@
   margin-top: 30px;
 }
 
-.fas {
+#fas {
   font-size: 60px;
 }
 
-.far {
+#far {
   font-size: 60px;
 }
 
-.day-background-img {
+/* .day-background-img {
   background-image: url("../assets/images/nightWriting.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height:100%;
-}
+} */
 
 .summary-card {
   margin-top: 15px;
@@ -29,7 +29,7 @@
   background-repeat: no-repeat;
 }
 
-.home {
+body {
   background-image: url("../assets/images/relax-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -52,12 +52,18 @@
   opacity: 0.7;
 }
 
-.auth {
-  background-image: url("../assets/images/auth-bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+#auth-text {
+  padding-top: 60px;
 }
 
-#auth-text {
-  padding-top: 30px;
+#home-button:hover {
+  background-color: blue;
+}
+
+.week-link:visited {
+  color: white;
+}
+
+.week-link {
+  font-weight: bold;
 }
