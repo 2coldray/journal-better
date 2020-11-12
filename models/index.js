@@ -1,5 +1,6 @@
 module.exports = {
   Note: require("./Note"),
   User: require("./User"),
-  Compare: require("./Compare")
+  Compare: require("./Compare"),
+  JournalEntry: require("./JournalEntry")
 };
