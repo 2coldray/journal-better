@@ -5,12 +5,12 @@ import "./Header.css";
 const Header = () => {
   return (
     <div>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-light' id="navbar">
         <Link className='navbar-brand' to="/Week">
           <img
-              src={logo}
-              className="logo"
-              alt="Journal Better Home"
+            src={logo}
+            className="logo"
+            alt="Journal Better Home"
           />
         </Link>
         <button
@@ -43,7 +43,7 @@ const Header = () => {
               </Link>
             </li>
             <li className='nav-item'>
-            {/* TODO: Make a profile page and link it to this */}
+              {/* TODO: Make a profile page and link it to this */}
               <Link className='nav-link disabled' tabindex="-1" aria-disabled="true" to='/Week'>
                 Profile
               </Link>
