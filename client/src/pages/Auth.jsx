@@ -131,21 +131,21 @@ const Auth = () => {
           <br />
         </div>
         <div
-          class='modal fade'
+          className='modal fade'
           id='signup'
-          tabindex='-1'
+          tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
         >
-          <div class='modal-dialog'>
-            <div class='modal-content'>
-              <div class='modal-header'>
-                <h5 class='modal-title ml-auto' id='exampleModalLabel'>
+          <div className='modal-dialog'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title ml-auto' id='exampleModalLabel'>
                   Create an Account
                 </h5>
                 <button
                   type='button'
-                  class='close'
+                  className='close'
                   data-dismiss='modal'
                   aria-label='Close'
                 >
@@ -243,21 +243,21 @@ const Auth = () => {
           </div>
         </div>
         <div
-          class='modal fade'
+          className='modal fade'
           id='login'
-          tabindex='-1'
+          tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
         >
-          <div class='modal-dialog'>
-            <div class='modal-content'>
-              <div class='modal-header'>
-                <h5 class='modal-title ml-auto' id='exampleModalLabel'>
+          <div className='modal-dialog'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title ml-auto' id='exampleModalLabel'>
                   Already a Member?
                 </h5>
                 <button
                   type='button'
-                  class='close'
+                  className='close'
                   data-dismiss='modal'
                   aria-label='Close'
                 >
@@ -305,7 +305,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='submit' class='btn btn-primary'>
+                    <button type='submit' className='btn btn-primary'>
                       Login
                     </button>
                     <br />
