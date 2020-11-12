@@ -43,6 +43,29 @@ router.post("/api/addNote/:id", (req, res) => {
   }
 });
 
+
+router.get("/api/WeekNotes/:id", (req,res) => {
+  db.User.findOne({ _id: req.params.id})
+  .populate("notes")
+  .then(user => {
+    console.log(user);
+   const notes= user.notes.filter(note => note.datetime === req.body.datetime)
+    console.log(notes);
+    res.status(200).json({
+      error: false,
+      data: notes.splice(0,2),
+      message: "Here you go"
+    })
+  }).catch(err => {
+    console.log(err);
+    res.json({
+      error: true,
+      data: err,
+      message: "Something went wrong"
+    })
+  })
+})
+
 router.get("/api/allNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
@@ -108,5 +131,21 @@ router.delete("/api/deleteNote/:id", (req, res) => {
       });
     });
 });
+
+
+router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
+  db.User.findOne({ _id: req.params.id})
+  .populate("notes")
+  .then(user => {
+    console.log(user);
+   const notes= user.notes.filter(note => note.datetime === req.params.datetime)
+    console.log(notes);
+    res.status(200).json({
+      error: false,
+      data: notes.splice(0,2),
+      message: "Here you go"
+    })
+  }).catch(err=> console.log(err))
+})
 
 module.exports = router;
