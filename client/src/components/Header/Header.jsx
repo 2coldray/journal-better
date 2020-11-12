@@ -44,7 +44,7 @@ const Header = () => {
             </li>
             <li className='nav-item'>
               {/* TODO: Make a profile page and link it to this */}
-              <Link className='nav-link disabled' tabindex="-1" aria-disabled="true" to='/Week'>
+              <Link className='nav-link disabled' tabIndex="-1" aria-disabled="true" to='/Week'>
                 Profile
               </Link>
             </li>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./pages.css";
 import { Link } from "react-router-dom";
-import WeekCard from  "../components/WeekCard/WeekCard";
+import WeekCard from "../components/WeekCard/WeekCard";
 import axios from "axios";
 
 const Week = () => {
