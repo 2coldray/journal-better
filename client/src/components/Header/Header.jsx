@@ -47,6 +47,11 @@ const Header = () => {
               </Link>
             </li>
             <li className='nav-item'>
+              <Link className='nav-link' to='/Journal'>
+                Journal
+              </Link>
+            </li>
+            <li className='nav-item'>
               {/* TODO: Make a profile page and link it to this */}
               <Link
                 className='nav-link disabled'
