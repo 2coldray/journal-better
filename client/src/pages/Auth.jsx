@@ -15,7 +15,11 @@ const Auth = () => {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true)
+  const handleShow = () => setShow(true);
+
+  const openModal = () => {
+
+  }
 
   const handleFirstNameInputChange = (e) => {
     const { value } = e.target;
@@ -231,7 +235,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='submit' class='btn btn-primary' onClick={handleClose}>
+                    <button type='submit' class='btn btn-primary' onClick={handleClose} data-dismiss='close'>
                       Sign-Up
                     </button>
                     <br />
