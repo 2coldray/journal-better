@@ -19,6 +19,8 @@ app.use(require("./controllers/notesController.js"));
 app.use(require("./controllers/compareController.js"));
 app.use(require('./controllers/userController.js'));
 app.use(require('./controllers/journalController.js'));
+
+
 // Mongoose Middleware
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-3", {
     useNewUrlParser: true,

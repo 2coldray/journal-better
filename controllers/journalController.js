@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 // Create Route
+// TODO: make a check that prevents User from putting a journal entry where a date from that journal entry already exists 
 router.post("/api/addEntry/:id", (req, res) => {
   const { datetime, entry } = req.body;
   if (!entry.trim()) {
@@ -86,7 +87,7 @@ router.put("/api/JournalEntry/:id", (req, res) => {
     { new: true }
   )
     .then((updatedEntry) => {
-      res.json({
+      res.status(200).json({
         error: false,
         data: updatedEntry,
         message: "Entry Updated",
@@ -119,3 +120,4 @@ router.delete("/api/deleteEntry/:id", (req, res) => {
 });
 
 module.exports = router;
+
