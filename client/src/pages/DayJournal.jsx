@@ -80,7 +80,7 @@ const DayJournal = (props) => {
                   Save Entry <i className='far fa-save'></i>
                 </button>
                 {/* <button type='button' className='btn btn-primary' id='edit-btn'>
-                  Edit Entry <i class='far fa-edit'></i>
+                  Edit Entry <i ='far fa-edit'></i>
                 </button> */}
                 <br />
                 <br />
