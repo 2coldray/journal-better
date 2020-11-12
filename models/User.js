@@ -27,6 +27,12 @@ const UserSchema = new Schema({
       ref: "Note",
     },
   ],
+  journal: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "JournalEntry"
+    }
+  ]
 });
 
 const User = mongoose.model("User", UserSchema);
