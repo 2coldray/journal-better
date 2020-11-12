@@ -16,7 +16,7 @@ function WeekCard(props) {
     const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
     console.log(props.DateTime);
     axios.get(`/api/WeekNotes/5fa8728e9988e01d9cd232f9/${props.DateTime}`)
-    .then(res=> console.log(res))
+    .then(res=> console.log(res.data))
     // axios
     //   .get("/api/WeekNotes/" + decoded._id, {
     //     datetime: props.DateTime,

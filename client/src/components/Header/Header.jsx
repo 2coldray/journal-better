@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
 import "./Header.css";
 const Header = () => {
+  const { Today } = useContext(DateContext);
   return (
     <div>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light' id="navbar">
-        <Link className='navbar-brand' to="/Week">
-          <img
-            src={logo}
-            className="logo"
-            alt="Journal Better Home"
-          />
+      <nav
+        className='navbar navbar-expand-lg navbar-light bg-light'
+        id='navbar'
+      >
+        <Link className='navbar-brand' to='/Week'>
+          <img src={logo} className='logo' alt='Journal Better Home' />
         </Link>
         <button
           className='navbar-toggler'
@@ -31,9 +32,12 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {/* TODO: Pass down current date on this link */}
+            {/* TODO: Pass down current date on this link  DONE*/}
             <li className='nav-item'>
-              <Link className='nav-link' to='/DayJournal'>
+              <Link
+                className='nav-link'
+                to={{ pathname: "/DayJournal", Date: Today }}
+              >
                 Journal Entry
               </Link>
             </li>
@@ -44,7 +48,12 @@ const Header = () => {
             </li>
             <li className='nav-item'>
               {/* TODO: Make a profile page and link it to this */}
-              <Link className='nav-link disabled' tabindex="-1" aria-disabled="true" to='/Week'>
+              <Link
+                className='nav-link disabled'
+                tabIndex='-1'
+                aria-disabled='true'
+                to='/Week'
+              >
                 Profile
               </Link>
             </li>
