@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.post("/api/addNote/:id", (req, res) => {
+router.post("/api/addNote/:user_id", (req, res) => {
   const { name, datetime, user_plans } = req.body;
-
   console.log(req.body);
   if (!name.trim()) {
     res.status(400);
@@ -16,7 +15,7 @@ router.post("/api/addNote/:id", (req, res) => {
     })
       .then((newNote) => {
         db.User.findOneAndUpdate(
-          { _id: req.params.id },
+          { _id: req.params.user_id },
           { $push: { notes: newNote._id } }
         )
           .then((response) => {
@@ -42,6 +41,7 @@ router.post("/api/addNote/:id", (req, res) => {
       });
   }
 });
+
 
 router.get("/api/allNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
