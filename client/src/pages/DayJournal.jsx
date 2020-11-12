@@ -8,9 +8,8 @@ import jwtModule from "jsonwebtoken";
 const DayJournal = (props) => {
   const { jwt } = useContext(AuthContext);
   const history = useHistory();
-  // const [UserId, setUserId] = useState("");
+
   const [name, setName] = useState("");
-  const [DateTime, setDateTime] = useState("Wednesday");
   const [plans, setPlans] = useState("");
 
   const handleNameInputChange = (e) => {
@@ -31,14 +30,16 @@ const DayJournal = (props) => {
     axios
       .post("/api/addNote/" + decoded._id, {
         name: name,
-        datetime: DateTime,
+        datetime: props.location.Date,
         user_plans: plans,
       })
       .then((response) => {
         console.log(response);
         if (response.status === 200) {
+          // TODO: Write an alert for user success 
           history.push("/Week");
         }
+        // TODO: Write an alert for error
       });
   };
   return (
@@ -49,7 +50,7 @@ const DayJournal = (props) => {
             <form className='' onSubmit={handleFormSubmit}>
               <div className='form-group text-center mx-auto'>
                 <label>
-                  <h2>Day 1</h2>
+                  <h2>{props.location.Date}</h2>
                 </label>
                 <br />
                 <br />
