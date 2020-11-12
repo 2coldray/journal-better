@@ -51,26 +51,24 @@ const DayJournal = (props) => {
                 <label>
                   <h2>Day 1</h2>
                 </label>
-                <br />
-                <br />
-                <div class='form-group mx-auto'>
+                <div className='form-group mx-auto'>
                   <label for='name'>Name of this event</label>
                   <input
                     type='name'
-                    class='form-control'
+                    className='form-control'
                     id='name'
                     placeholder='Enter the name of the event'
                     value={name}
                     onChange={handleNameInputChange}
                   />
                 </div>
-                <div class='form-group mx-auto'>
+                <div className='form-group mx-auto'>
                   <label for='exampleFormControlTextarea1'>
                     Your plans for today
                   </label>
                   <textarea
-                    class='form-control'
-                    id='exampleFormControlTextarea1'
+                    className='form-control'
+                    id='eform-control'
                     rows='7'
                     value={plans}
                     onChange={handlePlansInputChange}
