@@ -6,8 +6,12 @@ import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week";
-import Footer from "./components/Footer/Footer";
+import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
+
 
 function App() {
   const [jwt, setJwt] = useState("");
@@ -41,14 +45,17 @@ function App() {
   return (
     <div className='App'>
       <Router>
+        <Header/>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
-    <Route exact path="/Auth" component={Auth}/>
-        <Route exact path="/Home" component={Home}/>
-        <Route exact path="/Week" component={Week}/>
-        <Route exact path="/DaySummary" component={DaySummary}/>
-//         <Route exact path="/" component={Auth}/>
-            <Route exact path='/' component={Home} />
+            <ProtectedRoute exact path="/Week" component={Week}/>
+            <Route exact path="/Auth" component={Auth} />
+            <Route exact path="/Home" component={Home} />
+            {/* <Route exact path="/Week" component={Week} /> */}
+            <Route exact path="/DaySummary" component={DaySummary} />
+            <Route exact path="/DayJournal" component={DayJournal} />
+            <Route exact path="/" component={Auth} />
+            <Route exact path="/" component={Home} />
           </Switch>
           <Footer />
         </AuthContext.Provider>

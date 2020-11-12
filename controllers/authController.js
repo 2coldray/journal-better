@@ -11,6 +11,7 @@ router.post("/api/signup", (req, res) => {
   const { emailAddress, password, firstName, lastName } = req.body;
   //   console.log(emailAddress);
   //   console.log(password);
+  console.log(req.body);
   if (!emailAddress.trim() || !password.trim()) {
     res.status(400);
   } else {
