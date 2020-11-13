@@ -12,6 +12,7 @@ import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
+import TestPage from "./pages/testPage"
 
 
 
@@ -54,6 +55,7 @@ function App() {
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
             {/* <Route exact path="/Week" component={Week} /> */}
+            <Route exact path="/TestPage" component={TestPage} />
             <Route exact path="/DaySummary" component={DaySummary} />
             <Route exact path="/DayJournal" component={DayJournal} />
             <Route exact path="/Journal" component={Journal} />
