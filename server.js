@@ -22,7 +22,7 @@ app.use(require('./controllers/journalController.js'));
 
 
 // Mongoose Middleware
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-3", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/journal-better", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
