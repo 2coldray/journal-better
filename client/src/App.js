@@ -68,7 +68,6 @@ function App() {
       <Router>
         <Header/>
         <div>
-    {/*<AnalogClock style={style}/*}
       </div>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
