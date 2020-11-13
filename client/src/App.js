@@ -13,7 +13,6 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
-
 function App() {
   const [jwt, setJwt] = useState("");
 
@@ -43,35 +42,33 @@ function App() {
     }
   }, [jwt]);
 
-//   const style = {
-//     showRomanNumbers: false,
-//     showMinuteScale: true,
-//     showHourScale: true,
-//     showNumbers: true,
-//     radialDirectionOfNumbers: false,
-//     colorOfScalesAndNumbers: `black`,
-//     hourHandColor: `#151515`,
-//     minuteHandColor: `black`,
-//     secondHandColor: `red`,
-//     firstCircleColor: `white`,
-//     secondCircleColor: `white`,
-//     thirdCircleColor: `white`,
-//     fourthCircleColor: `black`,
-//     centerDotColor: `black`,
-//     width: 200,
-//     numberSize: 100,
-//     iana: `America/Cancun`
-// }
+  //   const style = {
+  //     showRomanNumbers: false,
+  //     showMinuteScale: true,
+  //     showHourScale: true,
+  //     showNumbers: true,
+  //     radialDirectionOfNumbers: false,
+  //     colorOfScalesAndNumbers: `black`,
+  //     hourHandColor: `#151515`,
+  //     minuteHandColor: `black`,
+  //     secondHandColor: `red`,
+  //     firstCircleColor: `white`,
+  //     secondCircleColor: `white`,
+  //     thirdCircleColor: `white`,
+  //     fourthCircleColor: `black`,
+  //     centerDotColor: `black`,
+  //     width: 200,
+  //     numberSize: 100,
+  //     iana: `America/Cancun`
+  // }
 
   return (
-    <div className='App'>
+    <div className="App">
       <Router>
-        <Header/>
-        <div>
-      </div>
+        <Header />
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
-            <ProtectedRoute exact path="/Week" component={Week}/>
+            <ProtectedRoute exact path="/Week" component={Week} />
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
             <Route exact path="/DaySummary" component={DaySummary} />
