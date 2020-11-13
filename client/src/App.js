@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import AuthContext from "./context/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { setAxiosDefaults } from "./utils/axiosDefaults";
 import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week";
 import Journal from "./pages/Journal";
+import { useEffect, useState } from "react";
 import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import AuthContext from "./context/AuthContext";
+import { setAxiosDefaults } from "./utils/axiosDefaults";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [jwt, setJwt] = useState("");
@@ -41,26 +41,6 @@ function App() {
       localStorage.setItem("jwt", jwt);
     }
   }, [jwt]);
-
-  //   const style = {
-  //     showRomanNumbers: false,
-  //     showMinuteScale: true,
-  //     showHourScale: true,
-  //     showNumbers: true,
-  //     radialDirectionOfNumbers: false,
-  //     colorOfScalesAndNumbers: `black`,
-  //     hourHandColor: `#151515`,
-  //     minuteHandColor: `black`,
-  //     secondHandColor: `red`,
-  //     firstCircleColor: `white`,
-  //     secondCircleColor: `white`,
-  //     thirdCircleColor: `white`,
-  //     fourthCircleColor: `black`,
-  //     centerDotColor: `black`,
-  //     width: 200,
-  //     numberSize: 100,
-  //     iana: `America/Cancun`
-  // }
 
   return (
     <div className="App">

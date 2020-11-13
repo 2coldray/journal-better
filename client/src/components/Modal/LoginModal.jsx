@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
+import React, { useState, useContext } from 'react';
 import AuthContext from "../../context/AuthContext";
 
 const LoginModal = () => {
