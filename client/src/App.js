@@ -11,9 +11,8 @@ import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
-import TestPage from "./pages/testPage"
-
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import AnalogClock from 'ras-react-component';
 
 
 function App() {
@@ -45,20 +44,41 @@ function App() {
     }
   }, [jwt]);
 
+  const style = {
+    showRomanNumbers: false,
+    showMinuteScale: true,
+    showHourScale: true,
+    showNumbers: true,
+    radialDirectionOfNumbers: false,
+    colorOfScalesAndNumbers: `black`,
+    hourHandColor: `#151515`,
+    minuteHandColor: `black`,
+    secondHandColor: `red`,
+    firstCircleColor: `white`,
+    secondCircleColor: `white`,
+    thirdCircleColor: `white`,
+    fourthCircleColor: `black`,
+    centerDotColor: `black`,
+    width: 200,
+    numberSize: 100,
+    iana: `America/Cancun`
+}
+
   return (
     <div className='App'>
       <Router>
         <Header/>
+        <div>
+        <AnalogClock style={style}/>
+      </div>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
             <ProtectedRoute exact path="/Week" component={Week}/>
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
-            {/* <Route exact path="/Week" component={Week} /> */}
-            <Route exact path="/TestPage" component={TestPage} />
             <Route exact path="/DaySummary" component={DaySummary} />
-            <Route exact path="/DayJournal" component={DayJournal} />
-            <Route exact path="/Journal" component={Journal} />
+            <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
+            <ProtectedRoute exact path="/Journal" component={Journal} />
             <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
           </Switch>

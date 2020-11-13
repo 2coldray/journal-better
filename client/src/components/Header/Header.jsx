@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
 import "./Header.css";
+
 const Header = () => {
   const { Today } = useContext(DateContext);
   return (
