@@ -86,7 +86,7 @@ const DayJournal = (props) => {
                   <h2>{props.location.Date}</h2>
                 </label>
                 <div className='form-group mx-auto'>
-                  <label for='exampleFormControlTextarea1'>
+                  <label htmlFor='exampleFormControlTextarea1'>
                     Your plans for today
                   </label>
                   <textarea
