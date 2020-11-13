@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./pages.css";
 import axios from "axios";
+import Header from "../components/Header/Header";
 import AuthContext from "../context/AuthContext";
 import DateContext from "../context/DateContext";
 import jwtModule from "jsonwebtoken";
@@ -35,6 +36,7 @@ const Journal = () => {
 
   return (
     <>
+    <Header/>
       <div className='container-fluid'>
         <div className='row'>
           <div id='list-example' class='col-3 list-group mx-3'>

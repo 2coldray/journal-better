@@ -4,9 +4,9 @@ import "./Footer.css"
 const Footer = () => {
     return (
         <div>
-            <footer className="footer text-muted text-center" id="footer">
+            <div className="footer text-center">
                 <p>Copyright <i className="far fa-copyright" id="cr-text"> The Borons 2020, All Rights Reserved.</i></p>
-            </footer>
+            </div>
         </div>
     );
 };
