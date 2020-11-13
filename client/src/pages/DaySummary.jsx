@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
+import Axios from "axios";
+
+
 const DaySummary = () => {
   // creates empty array and items to populate the array
   const [inputList, setInputList] = useState([]);
-  const [timeBlock, setTimeBlock] = useState({ timeblock: "" });
+  const [timeBlock, setTimeBlock] = useState("");
   const [inputList2, setInputList2] = useState([]);
-  const [timeBlock2, setTimeBlock2] = useState({ timeblock: "" });
+  const [timeBlock2, setTimeBlock2] = useState("");
 
   const handleInputChange = (e, index = 0) => {
     const { name, value } = e.target;
@@ -39,14 +42,36 @@ const DaySummary = () => {
     setInputList2([...inputList2, timeBlock2]);
   };
   const handleItemsSubmit = (list) => {
-    if (Array.isArray(list)) {
-      API.postListItems(list);
-      // .then(res=>{
-      //   setSavedList(res.data);
-      // })
+    console.log(list);
+      API.postListItems(list)
+      .then(res=>{
+        setSavedList(res.data);
+      })
       // setInputList([]);
-    }
   };
+
+  const onChange = (e)=>{let {value}=e.target
+  setTimeBlock(value)}
+
+
+
+/* Phil's stuff he added 
+const [item, setItem] = useState({
+  item:"",
+  title:""
+});
+const[philsList, setPhilsList] = useState([]);
+const handleItemChange = (e)=>{
+  setItem(e.target.value);
+}
+const handleFormSubmit = (e)=>{
+  e.preventDefault();
+  API.postItem(item.item, item.title, <user_id>)
+  .then(res=> console.log(res.data));
+}
+*/
+
+
 
   //   {inputList.length ? inputList.map((x, i) => {
   //     return (
@@ -79,10 +104,10 @@ const DaySummary = () => {
 
   return (
     <>
-      <div className="DaySummary">
+      { <div className="DaySummary">
         <div className="container">
           <div className="row">
-            <button onClick={handleAddClick}>Add</button>
+            <button onClick={handleAddClick} {...() => handleItemsSubmit(inputList)}>Add</button>
             <div className="col-md-6">
               <div className="card summary-card">
                 <div className="card-body">
@@ -94,6 +119,7 @@ const DaySummary = () => {
                         return (
                           <div className="box">
                             <p
+                              key={i}
                               name="Time Block"
                               placeholder="Enter time block notes"
                               value={x.timeBlock}
@@ -115,13 +141,14 @@ const DaySummary = () => {
                     ) : (
                       <div className="box">
                         <p
+                         
                           name="Time Block"
                           placeholder="Enter time block notes"
                         />
 
                       </div>
                     )}
-                    <input/>
+                    <input onChange value={timeBlock} onChange={onChange}/>
                   </p>
                 </div>
               </div>
@@ -129,86 +156,7 @@ const DaySummary = () => {
           </div>
         </div>
       </div>
-      <div>
-        <ul>
-          {/* {savedList.map(listItem =>(
-  <li className="list-group">{
-  {listItem}
-  }
-  </li>
-))} */}
-        </ul>
-      </div>
-      <button onClick={() => handleItemsSubmit(inputList)}>SUBMIT</button>
-    </>
-  );
-};
+}</> 
+);}
 
 export default DaySummary;
-
-// <div className="col-md-6">
-// <div className="card summary-card">
-//   <div className="card-body">
-//     <h5 className="card-title">
-//       How did you choose to live today?
-//     </h5>
-
-//     <p className="card-text">
-//       {inputList2.length ? (
-//         inputList2.map((x, i) => {
-//           return (
-//             <div className="box">
-//               <div className="card-body">
-//                 <p
-//                   class="card-text"
-//                   name="Time Block"
-//                   placeholder="Enter time block notes"
-//                   value={x.timeBlock}
-//                   onChange={(e) => handleInputChange2(e, i)}
-//                 />
-//               </div>
-//               <div className="btn-box">
-//                 {inputList2.length !== 1 && (
-//                   <button
-//                     className="mr10"
-//                     onClick={() => handleRemoveClick2(i)}
-//                   >
-//                     Remove
-//                   </button>
-//                 )}
-//               </div>
-//             </div>
-//           );
-//         })
-//       ) : (
-//         <div className="box">
-//           <input
-//             name="Time Block"
-//             placeholder="Enter time block notes"
-//           />
-//           <div className="btn-box">
-//             {inputList2.length !== 1 && (
-//               <button
-//                 className="mr10"
-//                 onClick={() => handleRemoveClick2()}
-//               >
-//                 Remove
-//               </button>
-//             )}
-//             {/*inputList.length - 1 === i && <button onClick={handleAddClick}>Add</button>*/}
-//           </div>
-//         </div>
-//       )}
-//     </p>
-//   </div>
-// </div>
-// </div>
-// <button onClick={handleAddClick2}>Add</button>
-
-// function takeListAndSend(list){
-//   if(Array.isArray(list)){
-//     console.log(list);
-//   }
-// }
-
-// takeListAndSend([1,2,3,4])

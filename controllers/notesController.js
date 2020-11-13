@@ -109,4 +109,8 @@ router.delete("/api/deleteNote/:id", (req, res) => {
     });
 });
 
+router.post("/api/listitems",(req,res)=>{
+  db.
+})
+
 module.exports = router;
