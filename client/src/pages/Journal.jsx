@@ -24,6 +24,7 @@ const Journal = () => {
 
   useEffect(() => {
     getAllEntries();
+    console.log(new Date().toLocaleDateString("en-US").split("/"));
   }, []);
 
   const deleteJournal = (id) => {
@@ -46,24 +47,6 @@ const Journal = () => {
                 {day.datetime}
               </a>
             ))}
-            {/* <a
-              class='list-group-item list-group-item-action'
-              href='#list-item-2'
-            >
-              Item 2
-            </a>
-            <a
-              class='list-group-item list-group-item-action'
-              href='#list-item-3'
-            >
-              Item 3
-            </a>
-            <a
-              class='list-group-item list-group-item-action'
-              href='#list-item-4'
-            >
-              Item 4
-            </a> */}
           </div>
           <div
             data-spy='scroll'
@@ -79,12 +62,6 @@ const Journal = () => {
                 <button type="submit" className="btn btn-danger" onClick={() => deleteJournal(entry._id)}> Delete </button>
               </>
             ))}
-            {/* <h4 id='list-item-2'> Journal 2</h4>
-            <p>...</p>
-            <h4 id='list-item-3'> Journal 3</h4>
-            <p>...</p>
-            <h4 id='list-item-4'> Journal 4</h4>
-            <p>...</p> */}
           </div>
         </div>
       </div>
