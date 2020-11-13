@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+// import Header from "./components/Header/Header";
 import AuthContext from "./context/AuthContext";
 import { setAxiosDefaults } from "./utils/axiosDefaults";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
@@ -45,7 +45,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
+        
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
             <ProtectedRoute exact path="/Week" component={Week} />

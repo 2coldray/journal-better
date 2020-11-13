@@ -3,6 +3,7 @@ import "./pages.css";
 import { Link } from "react-router-dom";
 import WeekCard from "../components/WeekCard/WeekCard";
 import DateContext from "../context/DateContext";
+import Header from "../components/Header/Header";
 import axios from "axios";
 
 const Week = () => {
@@ -10,6 +11,7 @@ const Week = () => {
 
   return (
     <>
+      <Header />
       <div className='day-background-img'>
         <div className='container'>
           <div className='row'>

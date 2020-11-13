@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
+import Header from "../components/Header/Header";
 import Axios from "axios";
 
 
@@ -43,33 +44,35 @@ const DaySummary = () => {
   };
   const handleItemsSubmit = (list) => {
     console.log(list);
-      API.postListItems(list)
-      .then(res=>{
+    API.postListItems(list)
+      .then(res => {
         setSavedList(res.data);
       })
-      // setInputList([]);
+    // setInputList([]);
   };
 
-  const onChange = (e)=>{let {value}=e.target
-  setTimeBlock(value)}
+  const onChange = (e) => {
+    let { value } = e.target
+    setTimeBlock(value)
+  }
 
 
 
-/* Phil's stuff he added 
-const [item, setItem] = useState({
-  item:"",
-  title:""
-});
-const[philsList, setPhilsList] = useState([]);
-const handleItemChange = (e)=>{
-  setItem(e.target.value);
-}
-const handleFormSubmit = (e)=>{
-  e.preventDefault();
-  API.postItem(item.item, item.title, <user_id>)
-  .then(res=> console.log(res.data));
-}
-*/
+  /* Phil's stuff he added 
+  const [item, setItem] = useState({
+    item:"",
+    title:""
+  });
+  const[philsList, setPhilsList] = useState([]);
+  const handleItemChange = (e)=>{
+    setItem(e.target.value);
+  }
+  const handleFormSubmit = (e)=>{
+    e.preventDefault();
+    API.postItem(item.item, item.title, <user_id>)
+    .then(res=> console.log(res.data));
+  }
+  */
 
 
 
@@ -104,6 +107,7 @@ const handleFormSubmit = (e)=>{
 
   return (
     <>
+      <Header />
       { <div className="DaySummary">
         <div className="container">
           <div className="row">
@@ -139,16 +143,16 @@ const handleFormSubmit = (e)=>{
                         );
                       })
                     ) : (
-                      <div className="box">
-                        <p
-                         
-                          name="Time Block"
-                          placeholder="Enter time block notes"
-                        />
+                        <div className="box">
+                          <p
 
-                      </div>
-                    )}
-                    <input onChange value={timeBlock} onChange={onChange}/>
+                            name="Time Block"
+                            placeholder="Enter time block notes"
+                          />
+
+                        </div>
+                      )}
+                    <input onChange value={timeBlock} onChange={onChange} />
                   </p>
                 </div>
               </div>
@@ -156,7 +160,8 @@ const handleFormSubmit = (e)=>{
           </div>
         </div>
       </div>
-}</> 
-);}
+      }</>
+  );
+}
 
 export default DaySummary;

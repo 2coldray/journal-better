@@ -4,6 +4,7 @@ import "./pages.css";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
 import jwtModule from "jsonwebtoken";
+import Header from "../components/Header/Header";
 
 const DayJournal = (props) => {
   const { jwt } = useContext(AuthContext);
@@ -76,6 +77,8 @@ const DayJournal = (props) => {
     }
   };
   return (
+    <>
+    <Header/>
     <div className='day-background-img'>
       <div className='container'>
         <div className='row'>
@@ -110,6 +113,7 @@ const DayJournal = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
