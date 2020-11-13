@@ -9,16 +9,12 @@ const db = require("../models");
 
 router.post("/api/signup", (req, res) => {
   const { emailAddress, password, firstName, lastName } = req.body;
-  //   console.log(emailAddress);
-  //   console.log(password);
-  console.log(req.body);
   if (!emailAddress.trim() || !password.trim()) {
     res.status(400);
   } else {
     bcrypt
       .hash(password, 10)
       .then((hashedPassword) => {
-        // console.log(hashedPassword);
         db.User.create({
           emailAddress: emailAddress,
           password: hashedPassword,
@@ -65,9 +61,6 @@ router.post("/api/login", (req, res) => {
   db.User.findOne({ emailAddress: emailAddress })
     .then((foundUser) => {
       if (foundUser) {
-        console.log(foundUser);
-        console.log("Hashed password from DB", foundUser.password);
-        console.log("Plain text password from user", password);
         // If there is a matching user, compare the plaintext password with the stored, hashed password.
         bcrypt
           .compare(password, foundUser.password)

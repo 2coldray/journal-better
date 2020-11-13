@@ -20,7 +20,6 @@ router.post("/api/addEntry/:id", (req, res) => {
           { $push: { journal: newEntry._id } }
         )
           .then((response) => {
-            console.log(response);
             res.status(200).send("Journal Entry Added");
           })
           .catch((err) => {
@@ -69,7 +68,6 @@ router.route("/api/getEntries/:id").get((req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("journal")
     .then((user) => {
-      console.log(user);
       res.status(200).json({
         error: false,
         data: user.journal,

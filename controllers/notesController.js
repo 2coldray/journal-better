@@ -4,7 +4,6 @@ const db = require("../models");
 
 router.post("/api/addNote/:user_id", (req, res) => {
   const { name, datetime, user_plans } = req.body;
-  console.log(req.body);
   if (!name.trim()) {
     res.status(400);
   } else {
@@ -19,7 +18,6 @@ router.post("/api/addNote/:user_id", (req, res) => {
           { $push: { notes: newNote._id } }
         )
           .then((response) => {
-            console.log(response);
             res.status(200).send("Note added");
           })
           .catch((err) => {
@@ -47,7 +45,6 @@ router.get("/api/WeekNotes/:id", (req,res) => {
   db.User.findOne({ _id: req.params.id})
   .populate("notes")
   .then(user => {
-    console.log(user);
    const notes= user.notes.filter(note => note.datetime === req.body.datetime)
     console.log(notes);
     res.status(200).json({
@@ -69,7 +66,6 @@ router.get("/api/allNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
     .then((user) => {
-      console.log(user.notes);
       let todayNotes = [];
       for (i = 0; i < user.notes.length; i++) {
         if (user.notes[i].datetime === "Wednesday") {
@@ -136,7 +132,6 @@ router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
   db.User.findOne({ _id: req.params.id})
   .populate("notes")
   .then(user => {
-    console.log(user);
    const notes= user.notes.filter(note => note.datetime === req.params.datetime)
     console.log(notes);
     res.status(200).json({
