@@ -119,9 +119,7 @@ const Auth = () => {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
+          
         </div>
         <div
           className='modal'
@@ -243,6 +241,7 @@ const Auth = () => {
           tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
+          overflow='remove'
         >
           <div className='modal-dialog'>
             <div className='modal-content'>

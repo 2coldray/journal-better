@@ -12,27 +12,17 @@
   font-size: 60px;
 }
 
-/* .day-background-img {
-  background-image: url("../assets/images/nightWriting.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height:100%;
-} */
-
 .summary-card {
   margin-top: 15px;
 }
-
-/* .summary {
-  background-image: url("../assets/images/writing.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-} */
 
 body {
   background-image: url("../assets/images/happy-book.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  /* height: 100vh;
+  width: 100vw; */
+  overflow: scroll;
 }
 
 #home-card-2 {
@@ -89,3 +79,7 @@ body {
   background-image: url("../assets/images/writing-modal.png");
   background-size: cover;
 } */
+
+.modal-open {
+  overflow: scroll;
+}
