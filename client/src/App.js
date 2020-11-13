@@ -12,7 +12,7 @@ import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
-// import Clock from 'react-digital-clock';
+
 
 
 
