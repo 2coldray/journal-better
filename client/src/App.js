@@ -14,8 +14,6 @@ import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 
-
-
 function App() {
   const [jwt, setJwt] = useState("");
 
@@ -45,16 +43,38 @@ function App() {
     }
   }, [jwt]);
 
+//   const style = {
+//     showRomanNumbers: false,
+//     showMinuteScale: true,
+//     showHourScale: true,
+//     showNumbers: true,
+//     radialDirectionOfNumbers: false,
+//     colorOfScalesAndNumbers: `black`,
+//     hourHandColor: `#151515`,
+//     minuteHandColor: `black`,
+//     secondHandColor: `red`,
+//     firstCircleColor: `white`,
+//     secondCircleColor: `white`,
+//     thirdCircleColor: `white`,
+//     fourthCircleColor: `black`,
+//     centerDotColor: `black`,
+//     width: 200,
+//     numberSize: 100,
+//     iana: `America/Cancun`
+// }
+
   return (
     <div className='App'>
       <Router>
         <Header/>
+        <div>
+    {/*<AnalogClock style={style}/*}
+      </div>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
             <ProtectedRoute exact path="/Week" component={Week}/>
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
-            {/* <Route exact path="/Week" component={Week} /> */}
             <Route exact path="/DaySummary" component={DaySummary} />
             <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
             <ProtectedRoute exact path="/Journal" component={Journal} />
