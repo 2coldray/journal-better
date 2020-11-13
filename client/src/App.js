@@ -55,8 +55,8 @@ function App() {
             <Route exact path="/Home" component={Home} />
             {/* <Route exact path="/Week" component={Week} /> */}
             <Route exact path="/DaySummary" component={DaySummary} />
-            <Route exact path="/DayJournal" component={DayJournal} />
-            <Route exact path="/Journal" component={Journal} />
+            <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
+            <ProtectedRoute exact path="/Journal" component={Journal} />
             <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
           </Switch>
