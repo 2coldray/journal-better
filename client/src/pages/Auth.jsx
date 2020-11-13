@@ -12,6 +12,14 @@ const Auth = () => {
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const openModal = () => {
+
+  }
 
   const handleFirstNameInputChange = (e) => {
     const { value } = e.target;
@@ -57,6 +65,7 @@ const Auth = () => {
       .catch((err) => {
         console.log(err);
       });
+      handleClose();
   };
 
   const handleLoginFormSubmit = (e, emailAddress, password) => {
@@ -96,6 +105,7 @@ const Auth = () => {
             className='btn-lg btn-primary'
             data-toggle='modal'
             data-target='#signup'
+            onClick={handleShow}
           >
             Sign-Up
           </button>
@@ -112,6 +122,7 @@ const Auth = () => {
             className='btn-lg btn-primary'
             data-toggle='modal'
             data-target='#login'
+            onClick={handleShow}
           >
             Login
           </button>
