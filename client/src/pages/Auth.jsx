@@ -130,18 +130,17 @@ const Auth = () => {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
+          
         </div>
         <div
-          className='modal fade'
+          className='modal'
+          data-backdrop=""
           id='signup'
           tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
         >
-          <div className='modal-dialog'>
+          <div className='modal-dialog' id="signup-modal">
             <div className='modal-content'>
               <div className='modal-header'>
                 <h5 className='modal-title ml-auto' id='exampleModalLabel'>
@@ -235,7 +234,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='submit' class='btn btn-primary' onClick={handleClose} data-dismiss='close'>
+                    <button type='submit' className='btn btn-primary'>
                       Sign-Up
                     </button>
                     <br />
@@ -247,17 +246,19 @@ const Auth = () => {
           </div>
         </div>
         <div
-          className='modal fade'
+          className='modal'
+          data-backdrop=""
           id='login'
           tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
+          overflow='remove'
         >
           <div className='modal-dialog'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h5 className='modal-title ml-auto' id='exampleModalLabel'>
-                  Already a Member?
+                <h5 className='modal-title ml-auto' id='exampleModalLabel'><strong>Already a Member?
+                  </strong>
                 </h5>
                 <button
                   type='button'
@@ -268,9 +269,9 @@ const Auth = () => {
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <br />
-              <br />
-              <div className='container'>
+              {/* <br />
+              <br /> */}
+              <div className='container' id="login-modal">
                 <form
                   onSubmit={(e) => {
                     handleLoginFormSubmit(e, emailAddress, password);
