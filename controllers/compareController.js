@@ -5,8 +5,6 @@ const db = require("../models");
 //TODO: Post Route
 router.post("/api/addCompare/:id", (req, res) => {
   const { name, time_stamp, user_plans } = req.body;
-
-  console.log(req.body);
   if (!name.trim()) {
     res.status(400);
   } else {
@@ -49,7 +47,6 @@ router.get("/api/compareNotes/:id", (req, res) => {
   db.Note.findOne({ _id: req.params.id })
     .populate("compare")
     .then((compareNotes) => {
-      console.log(compareNotes),
         res.status(200).json({
           error: false,
           data: compareNotes.compare,
@@ -72,7 +69,6 @@ router.get("/api/compareNotes/:id", (req, res) => {
 router.delete("/api/deleteCompare/:id", (req, res) => {
   db.Compare.findByIdAndDelete({ _id: req.params.id })
     .then((comparedNote) => {
-      console.log(comparedNote);
       res.json({ error: false, data: comparedNote, message: "Note delete" });
     })
     .catch((err) => {
