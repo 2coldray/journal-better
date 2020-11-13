@@ -52,7 +52,7 @@ const LoginModal = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <br />
-                    <div className='container' id="login-modal">
+                    <div className='container'>
                         <form
                             onSubmit={(e) => {
                                 handleLoginFormSubmit(e, emailAddress, password);

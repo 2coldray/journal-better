@@ -1,5 +1,5 @@
 import React from "react";
-import "./pages.css"; 
+import "./pages.css";
 import LoginModal from "../components/Modal/LoginModal"
 import SignUpModal from "../components/Modal/SignUpModal"
 
