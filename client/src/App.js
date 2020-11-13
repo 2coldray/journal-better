@@ -76,7 +76,6 @@ function App() {
             <ProtectedRoute exact path="/Week" component={Week}/>
             <Route exact path="/Auth" component={Auth} />
             <Route exact path="/Home" component={Home} />
-            {/* <Route exact path="/Week" component={Week} /> */}
             <Route exact path="/DaySummary" component={DaySummary} />
             <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
             <ProtectedRoute exact path="/Journal" component={Journal} />
