@@ -12,6 +12,14 @@ const Auth = () => {
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const openModal = () => {
+
+  }
 
   const handleFirstNameInputChange = (e) => {
     const { value } = e.target;
@@ -57,6 +65,7 @@ const Auth = () => {
       .catch((err) => {
         console.log(err);
       });
+      handleClose();
   };
 
   const handleLoginFormSubmit = (e, emailAddress, password) => {
@@ -96,6 +105,7 @@ const Auth = () => {
             className='btn-lg btn-primary'
             data-toggle='modal'
             data-target='#signup'
+            onClick={handleShow}
           >
             Sign-Up
           </button>
@@ -112,6 +122,7 @@ const Auth = () => {
             className='btn-lg btn-primary'
             data-toggle='modal'
             data-target='#login'
+            onClick={handleShow}
           >
             Login
           </button>
@@ -119,26 +130,25 @@ const Auth = () => {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
+          
         </div>
         <div
-          class='modal fade'
+          className='modal'
+          data-backdrop=""
           id='signup'
-          tabindex='-1'
+          tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
         >
-          <div class='modal-dialog'>
-            <div class='modal-content'>
-              <div class='modal-header'>
-                <h5 class='modal-title ml-auto' id='exampleModalLabel'>
+          <div className='modal-dialog' id="signup-modal">
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title ml-auto' id='exampleModalLabel'>
                   Create an Account
                 </h5>
                 <button
                   type='button'
-                  class='close'
+                  className='close'
                   data-dismiss='modal'
                   aria-label='Close'
                 >
@@ -224,7 +234,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='submit' class='btn btn-primary'>
+                    <button type='submit' className='btn btn-primary'>
                       Sign-Up
                     </button>
                     <br />
@@ -236,30 +246,32 @@ const Auth = () => {
           </div>
         </div>
         <div
-          class='modal fade'
+          className='modal'
+          data-backdrop=""
           id='login'
-          tabindex='-1'
+          tabIndex='-1'
           aria-labelledby='exampleModalLabel'
           aria-hidden='true'
+          overflow='remove'
         >
-          <div class='modal-dialog'>
-            <div class='modal-content'>
-              <div class='modal-header'>
-                <h5 class='modal-title ml-auto' id='exampleModalLabel'>
-                  Already a Member?
+          <div className='modal-dialog'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title ml-auto' id='exampleModalLabel'><strong>Already a Member?
+                  </strong>
                 </h5>
                 <button
                   type='button'
-                  class='close'
+                  className='close'
                   data-dismiss='modal'
                   aria-label='Close'
                 >
                   <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <br />
-              <br />
-              <div className='container'>
+              {/* <br />
+              <br /> */}
+              <div className='container' id="login-modal">
                 <form
                   onSubmit={(e) => {
                     handleLoginFormSubmit(e, emailAddress, password);
@@ -298,7 +310,7 @@ const Auth = () => {
                   <br />
                   <br />
                   <div className='col-sm-12 text-center'>
-                    <button type='submit' class='btn btn-primary'>
+                    <button type='submit' className='btn btn-primary'>
                       Login
                     </button>
                     <br />

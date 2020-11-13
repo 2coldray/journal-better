@@ -6,12 +6,14 @@ import axios from "axios";
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week";
+import Journal from "./pages/Journal";
 import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import Clock from 'react-digital-clock';
+
 
 
 function App() {
@@ -54,7 +56,8 @@ function App() {
             <Route exact path="/Home" component={Home} />
             {/* <Route exact path="/Week" component={Week} /> */}
             <Route exact path="/DaySummary" component={DaySummary} />
-            <Route exact path="/DayJournal" component={DayJournal} />
+            <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
+            <ProtectedRoute exact path="/Journal" component={Journal} />
             <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
           </Switch>

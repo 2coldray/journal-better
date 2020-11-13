@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.post("/api/addNote/:id", (req, res) => {
+router.post("/api/addNote/:user_id", (req, res) => {
   const { name, datetime, user_plans } = req.body;
-
   console.log(req.body);
   if (!name.trim()) {
     res.status(400);
@@ -16,7 +15,7 @@ router.post("/api/addNote/:id", (req, res) => {
     })
       .then((newNote) => {
         db.User.findOneAndUpdate(
-          { _id: req.params.id },
+          { _id: req.params.user_id },
           { $push: { notes: newNote._id } }
         )
           .then((response) => {
@@ -42,6 +41,29 @@ router.post("/api/addNote/:id", (req, res) => {
       });
   }
 });
+
+
+router.get("/api/WeekNotes/:id", (req,res) => {
+  db.User.findOne({ _id: req.params.id})
+  .populate("notes")
+  .then(user => {
+    console.log(user);
+   const notes= user.notes.filter(note => note.datetime === req.body.datetime)
+    console.log(notes);
+    res.status(200).json({
+      error: false,
+      data: notes.splice(0,2),
+      message: "Here you go"
+    })
+  }).catch(err => {
+    console.log(err);
+    res.json({
+      error: true,
+      data: err,
+      message: "Something went wrong"
+    })
+  })
+})
 
 router.get("/api/allNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
@@ -109,8 +131,25 @@ router.delete("/api/deleteNote/:id", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 router.post("/api/listitems",(req,res)=>{
   db.
+=======
+
+router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
+  db.User.findOne({ _id: req.params.id})
+  .populate("notes")
+  .then(user => {
+    console.log(user);
+   const notes= user.notes.filter(note => note.datetime === req.params.datetime)
+    console.log(notes);
+    res.status(200).json({
+      error: false,
+      data: notes.splice(0,2),
+      message: "Here you go"
+    })
+  }).catch(err=> console.log(err))
+>>>>>>> 39551e028e1948f5a4ecd70a26b7813250b658c2
 })
 
 module.exports = router;
