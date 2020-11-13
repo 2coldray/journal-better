@@ -131,10 +131,6 @@ router.delete("/api/deleteNote/:id", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.post("/api/listitems",(req,res)=>{
-  db.
-=======
 
 router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
   db.User.findOne({ _id: req.params.id})
@@ -149,7 +145,6 @@ router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
       message: "Here you go"
     })
   }).catch(err=> console.log(err))
->>>>>>> 39551e028e1948f5a4ecd70a26b7813250b658c2
 })
 
 module.exports = router;
