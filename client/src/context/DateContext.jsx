@@ -3,7 +3,6 @@ import {format, startOfWeek, endOfWeek, eachDayOfInterval as eachDay} from "date
 
 // TODO: Get Internet time and put into this context
 const Today = format(new Date(), 'PPP');
-// const DateFormattedArr = new Date().toLocaleDateString("en-US").split("/");
 const StartofWeek = startOfWeek(new Date());
 const EndofWeek = endOfWeek(new Date());
 const FullWeek = eachDay({start:StartofWeek, end:EndofWeek});

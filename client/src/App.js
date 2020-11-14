@@ -10,7 +10,6 @@ import Journal from "./pages/Journal";
 import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
