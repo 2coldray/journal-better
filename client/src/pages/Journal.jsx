@@ -6,11 +6,11 @@ import Header from "../components/Header/Header";
 import AuthContext from "../context/AuthContext";
 import DateContext from "../context/DateContext";
 import jwtModule from "jsonwebtoken";
-import {startOfISOWeek, getWeek} from "date-fns"
+import {startOfISOWeek} from "date-fns"
 
 const Journal = () => {
   const { jwt } = useContext(AuthContext);
-  const{StartWeek, FullWeek} = useContext(DateContext);
+  const{Week, LastWeek} = useContext(DateContext);
 
   const { REACT_APP_SECRET } = process.env;
 
@@ -28,8 +28,8 @@ const Journal = () => {
     getAllEntries();
     console.log(new Date().toLocaleDateString("en-US").split("/"));
     console.log(startOfISOWeek(new Date()));
-    console.log(StartWeek);
-    console.log(FullWeek);
+    console.log(Week);
+    console.log(LastWeek);
   }, []);
 
   const deleteJournal = (id) => {
