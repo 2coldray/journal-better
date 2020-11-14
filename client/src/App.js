@@ -45,7 +45,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
             <Route exact path="/Week" component={Week} />

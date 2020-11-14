@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./pages.css";
 import axios from "axios";
 import Header from "../components/Header/Header";
 import AuthContext from "../context/AuthContext";
 import DateContext from "../context/DateContext";
 import jwtModule from "jsonwebtoken";
+import {startOfISOWeek, getWeek} from "date-fns"
 
 const Journal = () => {
   const { jwt } = useContext(AuthContext);
-  const history = useHistory();
+  const{StartWeek, FullWeek} = useContext(DateContext);
 
   const { REACT_APP_SECRET } = process.env;
 
@@ -26,6 +27,9 @@ const Journal = () => {
   useEffect(() => {
     getAllEntries();
     console.log(new Date().toLocaleDateString("en-US").split("/"));
+    console.log(startOfISOWeek(new Date()));
+    console.log(StartWeek);
+    console.log(FullWeek);
   }, []);
 
   const deleteJournal = (id) => {
