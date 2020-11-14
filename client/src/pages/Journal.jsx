@@ -10,7 +10,7 @@ import {startOfISOWeek} from "date-fns"
 
 const Journal = () => {
   const { jwt } = useContext(AuthContext);
-  const{Week, LastWeek} = useContext(DateContext);
+  const{Week, LastWeek, LastMonth, Month} = useContext(DateContext);
 
   const { REACT_APP_SECRET } = process.env;
 
@@ -26,10 +26,12 @@ const Journal = () => {
 
   useEffect(() => {
     getAllEntries();
-    console.log(new Date().toLocaleDateString("en-US").split("/"));
-    console.log(startOfISOWeek(new Date()));
-    console.log(Week);
-    console.log(LastWeek);
+    // console.log(new Date().toLocaleDateString("en-US").split("/"));
+    // console.log(startOfISOWeek(new Date()));
+    // console.log(Week);
+    // console.log(LastWeek);
+    // console.log(LastMonth);
+    // console.log(Month);
   }, []);
 
   const deleteJournal = (id) => {
