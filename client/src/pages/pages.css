@@ -20,7 +20,7 @@ body {
   background-image: url("../assets/images/happy-book.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 #home-card-2 {
