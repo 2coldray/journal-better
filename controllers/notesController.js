@@ -108,11 +108,11 @@ router.get("/api/WeekNotes/:id", (req, res) => {
     });
 });
 
-router.get("/api/TodayNotes/:id", (req, res) => {
+router.get("/api/Notes/:id/:datetime", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
     .then((user) => {
-      const todayNotes = user.notes.filter((note) => note.datetime === Today);
+      const todayNotes = user.notes.filter((note) => note.datetime === datetime);
       res.status(200).json({
         error: false,
         data: todayNotes,
