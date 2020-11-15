@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 import AuthContext from "../context/AuthContext";
 import DateContext from "../context/DateContext";
 import jwtModule from "jsonwebtoken";
-import {startOfISOWeek} from "date-fns"
+
 
 const Journal = () => {
   const { jwt } = useContext(AuthContext);
