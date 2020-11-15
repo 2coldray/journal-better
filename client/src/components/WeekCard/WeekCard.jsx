@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { ListGroup } from "react-bootstrap";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import jwtModule from "jsonwebtoken";
@@ -19,19 +20,19 @@ function WeekCard(props) {
   }, [props.DateTime, REACT_APP_SECRET, jwt]);
 
   return (
-    <div>
+    <>
       {notes.length ? (
         notes.map((noteName) => (
-          <li key={noteName._id} id={noteName._id} className='list-group-item'>
+          <ListGroup.Item action key={noteName._id} id={noteName._id}>
             {noteName.name}
-          </li>
+          </ListGroup.Item>
         ))
       ) : (
-        <li className='list-group-item'>
-          Hey journal some notes down for today
-        </li>
+        <ListGroup.Item action aria-rowspan='3'>
+          Hey write down some plans for today
+        </ListGroup.Item>
       )}
-    </div>
+    </>
   );
 }
 

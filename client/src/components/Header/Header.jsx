@@ -33,7 +33,6 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {/* TODO: Pass down current date on this link  DONE*/}
             <li className="nav-item">
               <Link
                 className="nav-link"
