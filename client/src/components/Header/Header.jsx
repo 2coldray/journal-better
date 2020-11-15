@@ -64,8 +64,8 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <ul className="navbar-nav navbar-right ml-auto">
-            <li className="nav-item right">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
               <Link className="nav-link" to="/Auth">
                 <i className="fas fa-sign-out-alt mr-1"></i>
                 Logout
