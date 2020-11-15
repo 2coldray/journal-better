@@ -34,8 +34,6 @@ const LastMonth = subMonths(new Date(), 1);
 const FormattedLastMonth = format(LastMonth, "MMMM");
 // -------------------------------------------------------------------------------------------
 
-
-
 router.post("/api/addNote/:id", (req, res) => {
   const { name, datetime, user_plans } = req.body;
   console.log(req.body);
@@ -52,13 +50,18 @@ router.post("/api/addNote/:id", (req, res) => {
           { _id: req.params.id },
           { $push: { notes: newNote._id } }
         )
-          .then((response) => {
-            console.log(response);
-            res.status(200).json({
-              error:false,
-              data: res,
-              message: "Note added"});
-            
+          .then((emptyUser) => {
+            // console.log(user.notes);
+            db.User.findById(req.params.id)
+              .populate("notes")
+              .then((user) => {
+                console.log(user.notes);
+                res.status(200).json({
+                  error: false,
+                  data: user.notes,
+                  message: "Note added",
+                });
+              });
           })
           .catch((err) => {
             console.log(err);
@@ -80,35 +83,35 @@ router.post("/api/addNote/:id", (req, res) => {
   }
 });
 
-
-router.get("/api/WeekNotes/:id", (req,res) => {
-  db.User.findOne({ _id: req.params.id})
-  .populate("notes")
-  .then(user => {
-   const notes= user.notes.filter(note => note.datetime === req.body.datetime)
-    console.log(notes);
-    res.status(200).json({
-      error: false,
-      data: notes.splice(0,2),
-      message: "Here you go"
+router.get("/api/WeekNotes/:id", (req, res) => {
+  db.User.findOne({ _id: req.params.id })
+    .populate("notes")
+    .then((user) => {
+      const notes = user.notes.filter(
+        (note) => note.datetime === req.body.datetime
+      );
+      console.log(notes);
+      res.status(200).json({
+        error: false,
+        data: notes.splice(0, 2),
+        message: "Here you go",
+      });
     })
-  }).catch(err => {
-    console.log(err);
-    res.json({
-      error: true,
-      data: err,
-      message: "Something went wrong"
-    })
-  })
-})
+    .catch((err) => {
+      console.log(err);
+      res.json({
+        error: true,
+        data: err,
+        message: "Something went wrong",
+      });
+    });
+});
 
 router.get("/api/TodayNotes/:id", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
     .then((user) => {
-      const todayNotes = user.notes.filter(
-        (note) => note.datetime === Today
-      );
+      const todayNotes = user.notes.filter((note) => note.datetime === Today);
       res.status(200).json({
         error: false,
         data: todayNotes,
@@ -163,19 +166,21 @@ router.delete("/api/deleteNote/:id", (req, res) => {
     });
 });
 
-
-router.route("/api/weekNotes/:id/:datetime").get((req,res)=>{
-  db.User.findOne({ _id: req.params.id})
-  .populate("notes")
-  .then(user => {
-   const notes= user.notes.filter(note => note.datetime === req.params.datetime)
-    console.log(notes);
-    res.status(200).json({
-      error: false,
-      data: notes.splice(0,2),
-      message: "Here you go"
+router.route("/api/weekNotes/:id/:datetime").get((req, res) => {
+  db.User.findOne({ _id: req.params.id })
+    .populate("notes")
+    .then((user) => {
+      const notes = user.notes.filter(
+        (note) => note.datetime === req.params.datetime
+      );
+      console.log(notes);
+      res.status(200).json({
+        error: false,
+        data: notes.splice(0, 2),
+        message: "Here you go",
+      });
     })
-  }).catch(err=> console.log(err))
-})
+    .catch((err) => console.log(err));
+});
 
 module.exports = router;

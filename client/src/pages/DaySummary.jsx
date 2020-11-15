@@ -11,34 +11,23 @@ const DaySummary = (props) => {
 
   const { REACT_APP_SECRET } = process.env;
 
-  useEffect(()=>{
+  useEffect(() => {
     const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
-    API.getTodayNotes(decoded._id).then(res => {
-      setInputList(res.data.data)
-    })
-  },[REACT_APP_SECRET,jwt])
+    API.getTodayNotes(decoded._id).then((res) => {
+      setInputList(res.data.data);
+    });
+  }, [REACT_APP_SECRET, jwt]);
 
-  // creates empty array and items to populate the array
-  const [inputList, setInputList] = useState([]);
+  
   const [name, setName] = useState("");
   const [userPlans, setUserPlans] = useState("");
-  const [timeBlock, setTimeBlock] = useState({
-    name: "",
-    user_plans: "",
-    datetime: props.location.Date,
-  });
-  // const [inputList2, setInputList2] = useState([]);
-  // const [timeBlock2, setTimeBlock2] = useState("");
+  const [inputList, setInputList] = useState([]);
+  const [inputList2, setInputList2] = useState([]);
+
 
   const handleNameChange = (e) => {
     let { value } = e.target;
     setName(value);
-    // TODO: set date time here always
-    setTimeBlock({
-      name: name,
-      user_plans: userPlans,
-      datetime: props.location.Date,
-    });
   };
 
   // const handleInputChange = (e, index = 0) => {
@@ -84,31 +73,34 @@ const DaySummary = (props) => {
   const addNewNote = (e) => {
     e.preventDefault();
     const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
-    axios.post(`/api/addNote/${decoded._id}`,  {
-      user_plans: timeBlock.user_plans,
-      name: timeBlock.name,
-      datetime: timeBlock.datetime
-    }).then((res) => {
-      console.log(res);
-      if (res.status === 200) {
-        setInputList([...inputList, timeBlock]);
-        setName("");
-        setUserPlans("");
-      } else {
-        console.error();
-      }
-    });
+
+    axios
+      .post(`/api/addNote/${decoded._id}`, {
+        user_plans: userPlans,
+        name: name,
+        datetime: props.location.Date,
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          console.log(res.data.data);
+          setInputList(res.data.data);
+          setName("");
+          setUserPlans("");
+        } else {
+          console.error();
+        }
+      });
   };
+
+  const deleteNote = (id) => {
+    axios.delete(`/api/deleteNote/${id}`).then()
+  } 
 
   const handleUserPlans = (e) => {
     let { value } = e.target;
     setUserPlans(value);
     // TODO: set date time here always
-    setTimeBlock({
-      name: name,
-      user_plans: userPlans,
-      datetime: props.location.Date,
-    });
   };
 
   /* Phil's stuff he added 
@@ -178,7 +170,7 @@ const DaySummary = (props) => {
                           <div className='btn-box'>
                             {inputList.length !== 1 && (
                               <button
-                                className='mr10'
+                                className='mr10 btn btn-danger'
                                 onClick={() => handleRemoveClick(i)}
                               >
                                 Remove
@@ -193,12 +185,9 @@ const DaySummary = (props) => {
                       <Card.Text>Write down your plans for today</Card.Text>
                     </ListGroup.Item>
                   )}
-                  <form
-                  onSubmit={addNewNote}>
+                  <form onSubmit={addNewNote}>
                     <div class='form-group mb-n4'>
-                      <label>
-                        Activity Name:
-                      </label>
+                      <label>Activity Name:</label>
                       <input
                         type='name'
                         class='form-control'
@@ -208,9 +197,7 @@ const DaySummary = (props) => {
                       />
                     </div>
                     <div class='form-group'>
-                      <label>
-                        Your Plans:
-                      </label>
+                      <label>Your Plans:</label>
                       <textarea
                         class='form-control'
                         rows='3'
@@ -218,7 +205,10 @@ const DaySummary = (props) => {
                         onChange={handleUserPlans}
                       ></textarea>
                     </div>
-                    <button type='submit' className='btn btn-primary'> Add New Note</button>
+                    <button type='submit' className='btn btn-primary'>
+                      {" "}
+                      Add New Note
+                    </button>
                   </form>
                 </ListGroup>
               </Card.Body>
@@ -243,59 +233,6 @@ const DaySummary = (props) => {
           </div>
         </div>
       </div>
-
-      {/* <div className="DaySummary">
-        <div className="container">
-          <div className="row">
-            <button onClick={handleAddClick} {...() => handleItemsSubmit(inputList)}>Add</button>
-            <div className="col-md-6">
-              <div className="card summary-card">
-                <div className="card-body">
-                  <h5 className="card-title">How do you want to live today?</h5>
-
-                  <p className="card-text">
-                    {inputList.length ? (
-                      inputList.map((x, i) => {
-                        return (
-                          <div className="box">
-                            <p
-                              key={i}
-                              name="Time Block"
-                              placeholder="Enter time block notes"
-                              value={x.timeBlock}
-                              onChange={(e) => handleInputChange(e, i)}
-                            />
-                            <div className="btn-box">
-                              {inputList.length !== 1 && (
-                                <button
-                                  className="mr10"
-                                  onClick={() => handleRemoveClick(i)}
-                                >
-                                  Remove
-                                </button>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      })
-                    ) : (
-                        <div className="box">
-                          <p
-
-                            name="Time Block"
-                            placeholder="Enter time block notes"
-                          />
-
-                        </div>
-                      )}
-                    <input onChange value={timeBlock} onChange={onChange} />
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

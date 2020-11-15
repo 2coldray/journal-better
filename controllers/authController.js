@@ -66,7 +66,7 @@ router.post("/api/login", (req, res) => {
           .compare(password, foundUser.password)
           .then(function (result) {
             // result == true
-            console.log("The passwords match: ", result);
+            // console.log("The passwords match: ", result);
             if (result) {
               // If the passwords match, send back success.
               // TODO: send a jwt back as data instead. DONE
