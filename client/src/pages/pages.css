@@ -16,12 +16,16 @@
   margin-top: 15px;
 }
 
-/* body {
+body {
   background-image: url("../assets/images/happy-book.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   overflow: scroll;
-} */
+  background-attachment: fixed;
+  background-position: center;
+  height: auto;
+  width: 100%;
+}
 
 .App {
   height: 100vh;
