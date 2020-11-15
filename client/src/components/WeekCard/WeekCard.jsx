@@ -28,7 +28,7 @@ function WeekCard(props) {
           </ListGroup.Item>
         ))
       ) : (
-        <ListGroup.Item action aria-rowspan='3'>
+        <ListGroup.Item action>
           Hey write down some plans for today
         </ListGroup.Item>
       )}

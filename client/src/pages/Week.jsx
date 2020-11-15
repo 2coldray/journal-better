@@ -8,6 +8,7 @@ import Header from "../components/Header/Header";
 
 const Week = () => {
   const { Week } = useContext(DateContext);
+  
 
   return (
     <>
@@ -18,7 +19,7 @@ const Week = () => {
             {Week.map((Day) => (
               <Card className='col-sm-12 col-lg-3 mx-3 shadow-lg text-center' id='home-card-2'>
                 <Card.Body>
-                  <Card.Title>{Day}</Card.Title>
+                  <Card.Title as='h4'>{Day}</Card.Title>
                   <ListGroup className='list-group list-group-flush mb-3'>
                   <Link
                     to={{ pathname: "/DaySummary", Date: Day }}

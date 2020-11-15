@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
+import AuthContext from "../../context/AuthContext";
+import jwtModule from "jsonwebtoken";
 
 const Header = () => {
   const { Today } = useContext(DateContext);
+  const { jwt } = useContext(AuthContext);
+
+  const { REACT_APP_SECRET } = process.env;
+  const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
   return (
     <div>
       <nav
@@ -53,6 +59,9 @@ const Header = () => {
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
+          <li className='nav-item'>
+          <h5 className='nav-link'>{decoded.firstName} {decoded.lastName}</h5>
+          </li>
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 <i className="fas fa-sign-out-alt mr-1"></i>
