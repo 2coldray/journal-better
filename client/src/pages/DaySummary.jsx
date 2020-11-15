@@ -121,7 +121,7 @@ const DaySummary = (props) => {
       <Header />
       <div className='container-fluid'>
         <div className='row justify-content-center'>
-          <div id='Notes' className='col-lg-5 col-sm-10 mt-4'>
+          <div id='Notes' className='mt-4 col-lg-5 col-sm-10'>
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How do you want to live today?</Card.Header>
               <Card.Body>
@@ -152,7 +152,7 @@ const DaySummary = (props) => {
                     ))
                   ) : (
                     <ListGroup.Item>
-                      <Card.Text>Write down your plans for today</Card.Text>
+                      <Card.Text>Write down your plans for today and how long you want to do them.</Card.Text>
                     </ListGroup.Item>
                   )}
                   <form onSubmit={addNewNote}>
@@ -161,7 +161,7 @@ const DaySummary = (props) => {
                       <input
                         type='name'
                         class='form-control'
-                        placeholder='Enter Activity'
+                        placeholder='Example: Read a book, 30 min'
                         value={name}
                         onChange={handleNameChange}
                       />
@@ -175,7 +175,7 @@ const DaySummary = (props) => {
                         onChange={handleUserPlans}
                       ></textarea>
                     </div>
-                    <button type='submit' className='btn btn-primary'>
+                    <button type='submit' className='btn btn-info'>
                       {" "}
                       Add New Note
                     </button>
@@ -185,7 +185,7 @@ const DaySummary = (props) => {
             </Card>
           </div>
 
-          <div id='Compare' className='col-lg-5 col-sm-10 mt-4'>
+          <div id='Compare' className='mt-4 col-lg-5 col-sm-10'>
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How did you live today?</Card.Header>
               <Card.Body>
@@ -223,7 +223,7 @@ const DaySummary = (props) => {
                       <input
                         type='name'
                         class='form-control'
-                        placeholder='Enter Activity'
+                        placeholder='Example: Started Lord of the Rings, 2 hours'
                         value={name2}
                         onChange={handleNameChange2}
                       />
@@ -237,7 +237,7 @@ const DaySummary = (props) => {
                         onChange={handleUserPlans2}
                       ></textarea>
                     </div>
-                    <button type='submit' className='btn btn-primary'>
+                    <button type='submit' className='btn btn-info'>
                       {" "}
                       Add Compare Note
                     </button>
