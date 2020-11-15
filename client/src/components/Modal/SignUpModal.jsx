@@ -66,7 +66,7 @@ const SignUpModal = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="info" onClick={handleShow}>
                 Sign-Up
             </Button>
 
@@ -153,7 +153,7 @@ const SignUpModal = () => {
                             <br />
                             <br />
                             <div className="col-sm-12">
-                                <Button variant="primary" onSubmit={handleSignUpFormSubmit} type="submit">
+                                <Button variant="info" onSubmit={handleSignUpFormSubmit} type="submit">
                                     Sign-Up
                             </Button>
                             </div>

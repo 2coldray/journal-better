@@ -57,7 +57,6 @@ function App() {
             <Route exact path="/" component={Auth} />
             <Route exact path="/" component={Home} />
           </Switch>
-          <Footer />
         </AuthContext.Provider>
       </Router>
     </div>
