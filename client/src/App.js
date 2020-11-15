@@ -11,9 +11,11 @@ import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
 import Footer from "./components/Footer/Footer";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import desktopImage from "./assets/images/happy-book.jpg";
 
 function App() {
   const [jwt, setJwt] = useState("");
+  const imageUrl = desktopImage;
 
   useEffect(() => {
     console.log("Make an API call");
@@ -42,7 +44,7 @@ function App() {
   }, [jwt]);
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: `url(${imageUrl})`}}>
       <Router>
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
