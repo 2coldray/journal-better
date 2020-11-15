@@ -29,7 +29,6 @@
   background-repeat: no-repeat;
   background-position: top center;
 }
-
 .App-content {
   height: 100%;
   display: flex;
@@ -38,12 +37,10 @@
   align-items: center;
   padding: 40px;
 }
-
 @media (min-width: 650px ) {
   .App {
       background-position: center center;
   }
-
   .App-content {
       align-items: flex-end;
       justify-content: center;
