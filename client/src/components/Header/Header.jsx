@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
+import { BiLogOut } from 'react-icons/bi';
 
 const Header = () => {
   const { Today } = useContext(DateContext);
@@ -55,7 +56,9 @@ const Header = () => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                <i className="fas fa-sign-out-alt mr-1"></i>
+                {/* <i className="fas fa-sign-out-alt mr-1"></i> */}
+                {/* <ion-icon name="exit-outline mr-2"></ion-icon> */}
+                <BiLogOut  className="mr-1" />
                 Logout
               </Link>
             </li>
