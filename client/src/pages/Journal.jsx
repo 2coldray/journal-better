@@ -108,7 +108,7 @@ const Journal = () => {
           >
             {journal.map((entry) => (
               <>
-                <Card key={entry._id} className="mb-2 col-lg-10">
+                <Card key={entry._id} className="mb-2 col-sm-10 col-lg-10 shadow-lg">
                   <Card.Header as='h5'>{entry.datetime}</Card.Header>
                   <Card.Body>
                     {/* <Card.Title>Special title treatment</Card.Title> */}

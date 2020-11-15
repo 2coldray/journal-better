@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import {Card, Button} from "react-bootstrap";
 import API from "../utils/API";
 import Header from "../components/Header/Header";
 import Axios from "axios";
-
 
 const DaySummary = () => {
   // creates empty array and items to populate the array
@@ -44,19 +44,16 @@ const DaySummary = () => {
   };
   const handleItemsSubmit = (list) => {
     console.log(list);
-    API.postListItems(list)
-      .then(res => {
-        setSavedList(res.data);
-      })
+    API.postListItems(list).then((res) => {
+      setSavedList(res.data);
+    });
     // setInputList([]);
   };
 
   const onChange = (e) => {
-    let { value } = e.target
-    setTimeBlock(value)
-  }
-
-
+    let { value } = e.target;
+    setTimeBlock(value);
+  };
 
   /* Phil's stuff he added 
   const [item, setItem] = useState({
@@ -73,8 +70,6 @@ const DaySummary = () => {
     .then(res=> console.log(res.data));
   }
   */
-
-
 
   //   {inputList.length ? inputList.map((x, i) => {
   //     return (
@@ -108,7 +103,38 @@ const DaySummary = () => {
   return (
     <>
       <Header />
-      { <div className="DaySummary">
+      <div className='container-fluid'>
+        <div className='row justify-content-center'>
+          <div id='Notes' className='col-5 mt-4'>
+            <Card className='shadow-lg'>
+              <Card.Header>How do you want to live today?</Card.Header>
+              <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </Card.Text>
+              </Card.Body>
+              <Card.Footer><Button variant='primary'>Go somewhere</Button></Card.Footer>
+            </Card>
+          </div>
+          <div id='Compare' className='col-5 mt-4'>
+            <Card className='shadow-lg'>
+              <Card.Header>How did you live today?</Card.Header>
+              <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                  With supporting text below as a natural lead-in to additional
+                  content.
+                </Card.Text>
+                <Button variant='primary'>Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* <div className="DaySummary">
         <div className="container">
           <div className="row">
             <button onClick={handleAddClick} {...() => handleItemsSubmit(inputList)}>Add</button>
@@ -159,9 +185,9 @@ const DaySummary = () => {
             </div>
           </div>
         </div>
-      </div>
-      }</>
+      </div> */}
+    </>
   );
-}
+};
 
 export default DaySummary;
