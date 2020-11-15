@@ -42,7 +42,7 @@ const LoginModal = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="info" onClick={handleShow}>
                 Login
             </Button>
 
@@ -91,7 +91,7 @@ const LoginModal = () => {
                             <br />
                             <br />
                             <div className="col-sm-12 text-center">
-                                <Button variant="primary text-center" onSubmit={handleLoginFormSubmit} type="submit">
+                                <Button variant="info text-center" onSubmit={handleLoginFormSubmit} type="submit">
                                     Login
                             </Button>
                             </div>
