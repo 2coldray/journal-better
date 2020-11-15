@@ -121,7 +121,7 @@ const DaySummary = (props) => {
       <Header />
       <div className='container-fluid'>
         <div className='row justify-content-center'>
-          <div id='Notes' className='col-5 mt-4'>
+          <div id='Notes' className='col-lg-5 col-sm-10 mt-4'>
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How do you want to live today?</Card.Header>
               <Card.Body>
@@ -185,7 +185,7 @@ const DaySummary = (props) => {
             </Card>
           </div>
 
-          <div id='Compare' className='col-5 mt-4'>
+          <div id='Compare' className='col-lg-5 col-sm-10 mt-4'>
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How did you live today?</Card.Header>
               <Card.Body>
