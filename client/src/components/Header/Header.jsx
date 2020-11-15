@@ -63,6 +63,11 @@ const Header = () => {
                 Profile
               </Link>
             </li>
+            <li className="nav-item right">
+              <Link className="nav-link" to="/Auth"><i className="fas fa-sign-out-alt mr-2"></i>
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
