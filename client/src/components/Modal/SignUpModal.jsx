@@ -57,7 +57,7 @@ const SignUpModal = () => {
                 console.log(response);
                 console.log(response.data);
                 setJwt(response.data.data);
-                history.push("/Home");
+                history.push("/Tutorial");
             })
             .catch((err) => {
                 console.log(err);

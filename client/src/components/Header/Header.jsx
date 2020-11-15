@@ -66,7 +66,7 @@ const Header = () => {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/Auth">
+              <Link className="nav-link" to="/">
                 <i className="fas fa-sign-out-alt mr-1"></i>
                 Logout
               </Link>
@@ -74,15 +74,6 @@ const Header = () => {
           </ul>
         </div>
       </nav>
-      {/* <div className="card-header text-muted" id="header">
-                <a href={logo}>
-                    <img
-                        src={logo}
-                        className="logo"
-                        alt="logo"
-                    />
-                </a>
-            </div> */}
     </div>
   );
 };
