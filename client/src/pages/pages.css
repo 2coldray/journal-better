@@ -69,3 +69,7 @@ body {
 .auth-text-font{
   font-family: 'Bitter', serif;
 }
+
+.auth-card{
+  opacity: .7;
+}
