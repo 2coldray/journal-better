@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./pages.css";
 import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import WeekCard from "../components/WeekCard/WeekCard";
 import DateContext from "../context/DateContext";
 import Header from "../components/Header/Header";
@@ -16,16 +16,16 @@ const Week = () => {
         <div className='container-fluid'>
           <div className='row justify-content-center'>
             {Week.map((Day) => (
-              <Card className='col-sm-12 col-lg-3 mx-3 shadow-lg' id='home-card-2'>
+              <Card className='col-sm-12 col-lg-3 mx-3 shadow-lg text-center' id='home-card-2'>
                 <Card.Body>
                   <Card.Title>{Day}</Card.Title>
-                  <Card.Text>
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </Card.Text>
-                  <ul className='list-group list-group-flush'>
+                  <ListGroup className='list-group list-group-flush mb-3'>
+                  <Link
+                    to={{ pathname: "/DaySummary", Date: Day }}
+                  >
                     <WeekCard DateTime={Day} />
-                  </ul>
+                  </Link>
+                  </ListGroup>
                   <Link
                     to={{ pathname: "/DayJournal", Date: Day }}
                     className='dj-link'
