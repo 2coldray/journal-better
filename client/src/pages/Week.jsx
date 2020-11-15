@@ -5,7 +5,7 @@ import {Card } from "react-bootstrap";
 import WeekCard from "../components/WeekCard/WeekCard";
 import DateContext from "../context/DateContext";
 import Header from "../components/Header/Header";
-import axios from "axios";
+
 
 const Week = () => {
   const { Week } = useContext(DateContext);
