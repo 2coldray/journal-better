@@ -3,7 +3,7 @@ import AuthContext from "./context/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { setAxiosDefaults } from "./utils/axiosDefaults";
 import axios from "axios";
-import Home from "./pages/Home";
+import Tutorial from "./pages/Tutorial";
 import Auth from "./pages/Auth";
 import Week from "./pages/Week";
 import Journal from "./pages/Journal";
@@ -49,7 +49,7 @@ function App() {
           <Switch>
             <Route exact path="/Week" component={Week} />
             <Route exact path="/" component={Auth} />
-            <Route exact path="/Tutorial" component={Home} />
+            <Route exact path="/Tutorial" component={Tutorial} />
             <ProtectedRoute exact path="/DaySummary" component={DaySummary} />
             <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
             <ProtectedRoute exact path="/Journal" component={Journal} />
