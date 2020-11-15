@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import AuthContext from "../../context/AuthContext";
+import jwtModule from "jsonwebtoken";
 
 function WeekCard(props) {
-  //   const [DateTime, setDateTime] = useState("");
-  const [name, setName] = useState("");
+  const { jwt } = useContext(AuthContext);
   const [notes, setNotes] = useState([]);
-  //   setDateTime(props.DateTime);
+
+  const { REACT_APP_SECRET } = process.env;
 
   useEffect(() => {
-    axios
-      .get("/api/notes/", {
-        datetime: props.DateTime,
-        amount: 2,
-      })
-      .then((response) => {
-        response.data.forEach((note) => {
-          setName(note.name);
-          setNotes(...notes, name);
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [props.DateTime, name, notes]);
+    const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
+    console.log(props.DateTime);
+    axios.get(`/api/WeekNotes/${decoded._id}/${props.DateTime}`)
+    .then(res=> {
+      console.log(res.data.data);
+      setNotes(res.data.data)
+    });
+  }, [props.DateTime, REACT_APP_SECRET, jwt]);
 
   return (
     <div>
-      {notes && notes.map((noteName) =>
-        !noteName ? (
-          <li className='list-group-item'>Hey journal some notes down for today</li>
+      {notes.map((noteName) =>
+        !noteName.name ? (
+          <li className='list-group-item'>
+            Hey journal some notes down for today
+          </li>
         ) : (
-          <li className='list-group-item'>{noteName}</li>
+          <li 
+          key={noteName._id}
+          id={noteName._id}
+          className='list-group-item'
+          >{noteName.name}</li>
         )
       )}
     </div>
