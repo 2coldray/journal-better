@@ -33,7 +33,6 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {/* TODO: Pass down current date on this link  DONE*/}
             <li className="nav-item">
               <Link
                 className="nav-link"
@@ -50,17 +49,6 @@ const Header = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Journal">
                 Journal
-              </Link>
-            </li>
-            <li className="nav-item">
-              {/* TODO: Make a profile page and link it to this */}
-              <Link
-                className="nav-link disabled"
-                tabIndex="-1"
-                aria-disabled="true"
-                to="/Week"
-              >
-                Profile
               </Link>
             </li>
           </ul>

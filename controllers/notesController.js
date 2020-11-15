@@ -112,7 +112,7 @@ router.get("/api/Notes/:id/:datetime", (req, res) => {
   db.User.findOne({ _id: req.params.id })
     .populate("notes")
     .then((user) => {
-      const todayNotes = user.notes.filter((note) => note.datetime === datetime);
+      const todayNotes = user.notes.filter((note) => note.datetime === req.params.datetime);
       res.status(200).json({
         error: false,
         data: todayNotes,
