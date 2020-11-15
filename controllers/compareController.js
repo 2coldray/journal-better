@@ -4,23 +4,35 @@ const db = require("../models");
 
 //TODO: Post Route
 router.post("/api/addCompare/:id", (req, res) => {
-  const { name, time_stamp, user_plans } = req.body;
+  const { name, datetime, user_plans } = req.body;
+  console.log(req.body);
   if (!name.trim()) {
     res.status(400);
   } else {
     db.Compare.create({
       name: name,
-      time_stamp: time_stamp,
+      datetime: datetime,
       user_plans: user_plans,
     })
       .then((newCompare) => {
-        db.Note.findByIdAndUpdate(
+        db.User.findByIdAndUpdate(
           { _id: req.params.id },
-          { compare: newCompare }
+          { $push: { compare: newCompare._id } }
         )
           .then((response) => {
-            console.log(response);
-            res.status(200).send("Note added");
+            db.User.findById(req.params.id)
+              .populate("compare")
+              .then((user) => {
+                console.log(user.compare);
+                const AccurateCompare = user.compare.filter(
+                  (note) => note.datetime === datetime
+                );
+                res.status(200).json({
+                  error: false,
+                  data: AccurateCompare,
+                  message: "Note added",
+                });
+              });
           })
           .catch((err) => {
             console.log(err);
@@ -43,15 +55,16 @@ router.post("/api/addCompare/:id", (req, res) => {
 });
 
 //TODO: Get Route
-router.get("/api/compareNotes/:id", (req, res) => {
-  db.Note.findOne({ _id: req.params.id })
+router.get("/api/compareNotes/:id/:datetime", (req, res) => {
+  db.User.findOne({ _id: req.params.id })
     .populate("compare")
-    .then((compareNotes) => {
-        res.status(200).json({
-          error: false,
-          data: compareNotes.compare,
-          message: "Retrieved Compare Notes",
-        });
+    .then((user) => {
+      const currentNotes = user.compare.filter((note) => note.datetime === req.params.datetime);
+      res.status(200).json({
+        error: false,
+        data: currentNotes,
+        message: "Retrieved Compare Notes",
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -67,6 +80,7 @@ router.get("/api/compareNotes/:id", (req, res) => {
 
 //TODO: Delete Route
 router.delete("/api/deleteCompare/:id", (req, res) => {
+  console.log(req.params.id)
   db.Compare.findByIdAndDelete({ _id: req.params.id })
     .then((comparedNote) => {
       res.json({ error: false, data: comparedNote, message: "Note delete" });

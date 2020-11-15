@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const CompareSchema = new Schema({
     name: String,
-    time_stamp: {
+    datetime: {
         type: String,
         // required: true
     },

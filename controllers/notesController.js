@@ -56,9 +56,10 @@ router.post("/api/addNote/:id", (req, res) => {
               .populate("notes")
               .then((user) => {
                 console.log(user.notes);
+                const AccurateNotes = user.notes.filter((note) => note.datetime === datetime);
                 res.status(200).json({
                   error: false,
-                  data: user.notes,
+                  data: AccurateNotes,
                   message: "Note added",
                 });
               });

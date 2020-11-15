@@ -27,6 +27,12 @@ const UserSchema = new Schema({
       ref: "Note",
     },
   ],
+  compare: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Compare",
+    },
+  ],
   journal: [
     {
       type: Schema.Types.ObjectId,
