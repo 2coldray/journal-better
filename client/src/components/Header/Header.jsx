@@ -43,7 +43,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/DaySummary">
+              <Link className="nav-link" to={{ pathname: "/DaySummary", Date: Today }}>
                 Today's Summary
               </Link>
             </li>
