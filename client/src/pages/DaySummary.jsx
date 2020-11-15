@@ -1,25 +1,55 @@
-import React, { useEffect, useState } from "react";
-import {Card, Button} from "react-bootstrap";
+import React, { useEffect, useState, useContext } from "react";
+import { Card, Button, ListGroup } from "react-bootstrap";
 import API from "../utils/API";
 import Header from "../components/Header/Header";
-import Axios from "axios";
+import axios from "axios";
+import AuthContext from "../context/AuthContext";
+import jwtModule from "jsonwebtoken";
 
-const DaySummary = () => {
+const DaySummary = (props) => {
+  const { jwt } = useContext(AuthContext);
+
+  const { REACT_APP_SECRET } = process.env;
+
+  useEffect(()=>{
+    const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
+    API.getTodayNotes(decoded._id).then(res => {
+      setInputList(res.data.data)
+    })
+  },[REACT_APP_SECRET,jwt])
+
   // creates empty array and items to populate the array
   const [inputList, setInputList] = useState([]);
-  const [timeBlock, setTimeBlock] = useState("");
-  const [inputList2, setInputList2] = useState([]);
-  const [timeBlock2, setTimeBlock2] = useState("");
+  const [name, setName] = useState("");
+  const [userPlans, setUserPlans] = useState("");
+  const [timeBlock, setTimeBlock] = useState({
+    name: "",
+    user_plans: "",
+    datetime: props.location.Date,
+  });
+  // const [inputList2, setInputList2] = useState([]);
+  // const [timeBlock2, setTimeBlock2] = useState("");
 
-  const handleInputChange = (e, index = 0) => {
-    const { name, value } = e.target;
-    setTimeBlock(e.target.value);
+  const handleNameChange = (e) => {
+    let { value } = e.target;
+    setName(value);
+    // TODO: set date time here always
+    setTimeBlock({
+      name: name,
+      user_plans: userPlans,
+      datetime: props.location.Date,
+    });
   };
 
-  const handleInputChange2 = (e, index = 0) => {
-    const { name, value } = e.target;
-    setTimeBlock2(e.target.value);
-  };
+  // const handleInputChange = (e, index = 0) => {
+  //   const { name, value } = e.target;
+  //   setTimeBlock(e.target.value);
+  // };
+
+  // const handleInputChange2 = (e, index = 0) => {
+  //   const { name, value } = e.target;
+  //   setTimeBlock2(e.target.value);
+  // };
 
   // handle click event of the Remove button
   const handleRemoveClick = (index) => {
@@ -27,32 +57,58 @@ const DaySummary = () => {
     list.splice(index, 1);
     setInputList(list);
   };
-  const handleRemoveClick2 = (index2) => {
-    const list2 = [...inputList];
-    list2.splice(index2, 1);
-    setInputList2(list2);
-  };
-  const [savedList, setSavedList] = useState([]);
+  // const handleRemoveClick2 = (index2) => {
+  //   const list2 = [...inputList];
+  //   list2.splice(index2, 1);
+  //   setInputList2(list2);
+  // };
+  // const [savedList, setSavedList] = useState([]);
   // handle click event of the Add button
 
-  const handleAddClick = () => {
-    setInputList([...inputList, timeBlock]);
-  };
+  // const handleAddClick = () => {
+  //   setInputList([...inputList, timeBlock]);
+  // };
 
-  const handleAddClick2 = () => {
-    setInputList2([...inputList2, timeBlock2]);
-  };
-  const handleItemsSubmit = (list) => {
-    console.log(list);
-    API.postListItems(list).then((res) => {
-      setSavedList(res.data);
+  // const handleAddClick2 = () => {
+  //   setInputList2([...inputList2, timeBlock2]);
+  // };
+  // const handleItemsSubmit = (list) => {
+  //   console.log(list);
+  //   API.postListItems(list).then((res) => {
+  //     setSavedList(res.data);
+  //     setTimeBlock("");
+  //   });
+  //   // setInputList([]);
+  // };
+
+  const addNewNote = (e) => {
+    e.preventDefault();
+    const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
+    axios.post(`/api/addNote/${decoded._id}`,  {
+      user_plans: timeBlock.user_plans,
+      name: timeBlock.name,
+      datetime: timeBlock.datetime
+    }).then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        setInputList([...inputList, timeBlock]);
+        setName("");
+        setUserPlans("");
+      } else {
+        console.error();
+      }
     });
-    // setInputList([]);
   };
 
-  const onChange = (e) => {
+  const handleUserPlans = (e) => {
     let { value } = e.target;
-    setTimeBlock(value);
+    setUserPlans(value);
+    // TODO: set date time here always
+    setTimeBlock({
+      name: name,
+      user_plans: userPlans,
+      datetime: props.location.Date,
+    });
   };
 
   /* Phil's stuff he added 
@@ -107,15 +163,65 @@ const DaySummary = () => {
         <div className='row justify-content-center'>
           <div id='Notes' className='col-5 mt-4'>
             <Card className='shadow-lg'>
-              <Card.Header>How do you want to live today?</Card.Header>
+              <Card.Header as='h4'>How do you want to live today?</Card.Header>
               <Card.Body>
-                <Card.Title>Special title treatment</Card.Title>
-                <Card.Text>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </Card.Text>
+                <Card.Title as='h5'>Special title treatment</Card.Title>
+                <ListGroup>
+                  {inputList.length ? (
+                    inputList.map((x, i) => (
+                      <ListGroup.Item key={i}>
+                        <Card.Title as='h6'>{x.name}</Card.Title>
+                        <Card.Text>
+                          <div className='box'>
+                            <p>{x.user_plans}</p>
+                          </div>
+                          <div className='btn-box'>
+                            {inputList.length !== 1 && (
+                              <button
+                                className='mr10'
+                                onClick={() => handleRemoveClick(i)}
+                              >
+                                Remove
+                              </button>
+                            )}
+                          </div>
+                        </Card.Text>
+                      </ListGroup.Item>
+                    ))
+                  ) : (
+                    <ListGroup.Item>
+                      <Card.Text>Write down your plans for today</Card.Text>
+                    </ListGroup.Item>
+                  )}
+                  <form
+                  onSubmit={addNewNote}>
+                    <div class='form-group mb-n4'>
+                      <label>
+                        Activity Name:
+                      </label>
+                      <input
+                        type='name'
+                        class='form-control'
+                        placeholder='Enter Activity'
+                        value={name}
+                        onChange={handleNameChange}
+                      />
+                    </div>
+                    <div class='form-group'>
+                      <label>
+                        Your Plans:
+                      </label>
+                      <textarea
+                        class='form-control'
+                        rows='3'
+                        value={userPlans}
+                        onChange={handleUserPlans}
+                      ></textarea>
+                    </div>
+                    <button type='submit' className='btn btn-primary'> Add New Note</button>
+                  </form>
+                </ListGroup>
               </Card.Body>
-              <Card.Footer><Button variant='primary'>Go somewhere</Button></Card.Footer>
             </Card>
           </div>
           <div id='Compare' className='col-5 mt-4'>
@@ -123,12 +229,16 @@ const DaySummary = () => {
               <Card.Header>How did you live today?</Card.Header>
               <Card.Body>
                 <Card.Title>Special title treatment</Card.Title>
-                <Card.Text>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </Card.Text>
-                <Button variant='primary'>Go somewhere</Button>
+                <ListGroup>
+                  <Card.Text>
+                    With supporting text below as a natural lead-in to
+                    additional content.
+                  </Card.Text>
+                </ListGroup>
               </Card.Body>
+              <Card.Footer>
+                <Button variant='primary'>Go somewhere</Button>
+              </Card.Footer>
             </Card>
           </div>
         </div>
