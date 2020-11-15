@@ -24,10 +24,10 @@ const Auth = () => {
         <h2 className="text-center auth-text-font">Journal Better</h2>
         <br />
         <div className="row">
-        <div className="col-sm-5"></div>
-        <div className="card auth-card col-sm-2 shadow p-3 mb-5 bg-white rounded">
-              <div className="card-body">
-          <div className="col-sm-12 text-center">
+          <div className="col-sm-5"></div>
+          <div className="card auth-card col-sm-2 shadow p-3 mb-5 bg-white rounded">
+            <div className="card-body">
+              <div className="col-sm-12 text-center">
                 <h5 className="text-center">Create an Account</h5>
                 <br />
                 <SignUpModal />
@@ -35,19 +35,17 @@ const Auth = () => {
                 <br />
                 <br />
                 <br />
-          </div>
-          <div className="col-sm-12 text-center">
-            <h5 className="text-center">Already a member?</h5>
-            <br />
-            <LoginModal />
-            <br />
-            <br />
-            <br />
-            <br />
-          </div>
-          </div>
+              </div>
+              <div className="col-sm-12 text-center">
+                <h5 className="text-center">Already a member?</h5>
+                <br />
+                <LoginModal />
+                <br />
+                <br />
+              </div>
             </div>
-            <div className="col-sm-5"></div>
+          </div>
+          <div className="col-sm-5"></div>
         </div>
       </div>
     </>

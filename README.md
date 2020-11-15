@@ -10,7 +10,7 @@ Journal Better is deployed on [Heroku](https://journal-better.herokuapp.com/).
 <br/><br/>
 The image below shows the startup of the app. This is where the user will either `sign-up` or `login` to continue.
 <br/><br/>
-![Application Screenshot]()
+![Application Screenshot](./client/src/assets/images/sc1.png)
 <br/><br/><br/>
 This shot shows the user that they will be redirected to login with their Steam credentials
 <br/><br/>
