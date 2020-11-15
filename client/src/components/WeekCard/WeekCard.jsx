@@ -12,27 +12,24 @@ function WeekCard(props) {
   useEffect(() => {
     const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
     console.log(props.DateTime);
-    axios.get(`/api/WeekNotes/${decoded._id}/${props.DateTime}`)
-    .then(res=> {
+    axios.get(`/api/WeekNotes/${decoded._id}/${props.DateTime}`).then((res) => {
       console.log(res.data.data);
-      setNotes(res.data.data)
+      setNotes(res.data.data);
     });
   }, [props.DateTime, REACT_APP_SECRET, jwt]);
 
   return (
     <div>
-      {notes.map((noteName) =>
-        !noteName.name ? (
-          <li className='list-group-item'>
-            Hey journal some notes down for today
+      {notes.length ? (
+        notes.map((noteName) => (
+          <li key={noteName._id} id={noteName._id} className='list-group-item'>
+            {noteName.name}
           </li>
-        ) : (
-          <li 
-          key={noteName._id}
-          id={noteName._id}
-          className='list-group-item'
-          >{noteName.name}</li>
-        )
+        ))
+      ) : (
+        <li className='list-group-item'>
+          Hey journal some notes down for today
+        </li>
       )}
     </div>
   );
