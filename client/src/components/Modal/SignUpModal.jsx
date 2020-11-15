@@ -152,7 +152,7 @@ const SignUpModal = () => {
                             </div>
                             <br />
                             <br />
-                            <div className="col-sm-12">
+                            <div className="col-sm-12 text-center">
                                 <Button variant="info" onSubmit={handleSignUpFormSubmit} type="submit">
                                     Sign-Up
                             </Button>

@@ -91,7 +91,7 @@ const LoginModal = () => {
                             <br />
                             <br />
                             <div className="col-sm-12 text-center">
-                                <Button variant="info text-center" onSubmit={handleLoginFormSubmit} type="submit">
+                                <Button variant="info" onSubmit={handleLoginFormSubmit} type="submit">
                                     Login
                             </Button>
                             </div>

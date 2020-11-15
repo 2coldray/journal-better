@@ -9,7 +9,6 @@ import Week from "./pages/Week";
 import Journal from "./pages/Journal";
 import DayJournal from "./pages/DayJournal";
 import DaySummary from "./pages/DaySummary";
-import Footer from "./components/Footer/Footer";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import desktopImage from "./assets/images/happy-book.jpg";
 

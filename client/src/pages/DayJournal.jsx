@@ -65,7 +65,7 @@ const DayJournal = (props) => {
     let { value } = e.target;
     setPlans(value);
   };
-  
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -78,41 +78,41 @@ const DayJournal = (props) => {
   };
   return (
     <>
-    <Header/>
-    <div className='day-background-img'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-sm-12 col-lg-12'>
-            <form className='' onSubmit={handleFormSubmit}>
-              <div className='form-group text-center mx-auto'>
-                <label>
-                  <h2>{props.location.Date}</h2>
-                </label>
-                <div className='form-group mx-auto'>
-                  <label htmlFor='exampleFormControlTextarea1'>
-                    Your plans for today
+      <Header />
+      <div className='day-background-img'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12 col-lg-12'>
+              <form className='' onSubmit={handleFormSubmit}>
+                <div className='form-group text-center mx-auto'>
+                  <label>
+                    <h2>{props.location.Date}</h2>
                   </label>
-                  <textarea
-                    className='form-control'
-                    id='eform-control'
-                    rows='7'
-                    value={plans}
-                    onChange={handlePlansInputChange}
-                  ></textarea>
+                  <div className='form-group mx-auto'>
+                    <label htmlFor='exampleFormControlTextarea1'><strong>
+                      Your goals for today</strong>
+                    </label>
+                    <textarea
+                      className='form-control'
+                      id='eform-control'
+                      rows='7'
+                      value={plans}
+                      onChange={handlePlansInputChange}
+                    ></textarea>
+                  </div>
                 </div>
-              </div>
-              <div className='col-row-12 text-center'>
-                <button type='submit' className='btn btn-light' id='save-btn'>
-                  Save Entry <i className='far fa-save'></i>
-                </button>
-                <br />
-                <br />
-              </div>
-            </form>
+                <div className='col-row-12 text-center'>
+                  <button type='submit' className='btn btn-light' id='save-btn'>
+                    Save Entry <i className='far fa-save'></i>
+                  </button>
+                  <br />
+                  <br />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
