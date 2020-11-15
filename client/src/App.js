@@ -47,15 +47,12 @@ function App() {
         <AuthContext.Provider value={{ jwt, setJwt }}>
           <Switch>
             <Route exact path="/Week" component={Week} />
-            <Route exact path="/Auth" component={Auth} />
-            <Route exact path="/Home" component={Home} />
+            <Route exact path="/" component={Auth} />
+            <Route exact path="/Tutorial" component={Home} />
             <Route exact path="/DaySummary" component={DaySummary} />
             <ProtectedRoute exact path="/DayJournal" component={DayJournal} />
             <ProtectedRoute exact path="/Journal" component={Journal} />
-            <Route exact path="/" component={Auth} />
-            <Route exact path="/" component={Home} />
           </Switch>
-          <Footer />
         </AuthContext.Provider>
       </Router>
     </div>
