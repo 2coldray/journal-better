@@ -16,7 +16,7 @@ const Week = () => {
         <div className='container-fluid'>
           <div className='row justify-content-center'>
             {Week.map((Day) => (
-              <Card className='col-sm-12 col-lg-3  mx-3 shadow-lg' id='home-card-2'>
+              <Card className='col-sm-12 col-lg-3 mx-3 shadow-lg' id='home-card-2'>
                 <Card.Body>
                   <Card.Title>{Day}</Card.Title>
                   <Card.Text>
@@ -35,43 +35,6 @@ const Week = () => {
                 </Card.Body>
               </Card>
             ))}
-
-            {/* <div className='col-md-3'>
-                <div className='card-body' id='home-card-2'>
-                  <h5 className='card-title'>{Day}</h5>
-
-                  <p className='card-text'>
-                    Plan your day, and share your thoughts
-                  </p>
-                  <ul className='list-group list-group-flush'>
-                    <WeekCard DateTime={Day} />
-                  </ul>
-                  <Link
-                    to={{ pathname: "/dayjournal", Date: Day }}
-                    className='dj-link'
-                  >
-                    Open your journal...
-                  </Link>
-                </div>
-              </div> */}
-            {/* <Card className='col-4' id='home-card-2'>
-              <Card.Body>
-                <Card.Title>{Day}</Card.Title>
-                <Card.Text>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </Card.Text>
-                <ul className='list-group list-group-flush'>
-                  <WeekCard DateTime={Day} />
-                </ul>
-                <Link
-                  to={{ pathname: "/DayJournal", Date: Day }}
-                  className='dj-link'
-                >
-                  Open your journal...
-                </Link>
-              </Card.Body>
-            </Card> */}
             <br />
             <br />
           </div>

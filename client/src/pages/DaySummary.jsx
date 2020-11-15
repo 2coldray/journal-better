@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Card, ListGroup } from "react-bootstrap";
-import API from "../utils/API";
 import Header from "../components/Header/Header";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
@@ -13,9 +12,11 @@ const DaySummary = (props) => {
 
   useEffect(() => {
     const decoded = jwtModule.verify(jwt, REACT_APP_SECRET);
-    API.getTodayNotes(decoded._id).then((res) => {
-      setInputList(res.data.data);
-    });
+    axios
+      .get(`/api/Notes/${decoded._id}/${props.location.Date}`)
+      .then((res) => {
+        setInputList(res.data.data);
+      });
     axios
       .get(`/api/compareNotes/${decoded._id}/${props.location.Date}`)
       .then((res) => {
@@ -152,7 +153,10 @@ const DaySummary = (props) => {
                     ))
                   ) : (
                     <ListGroup.Item>
-                      <Card.Text>Write down your plans for today and how long you want to do them.</Card.Text>
+                      <Card.Text>
+                        Write down your plans for today and how long you want to
+                        do them.
+                      </Card.Text>
                     </ListGroup.Item>
                   )}
                   <form onSubmit={addNewNote}>

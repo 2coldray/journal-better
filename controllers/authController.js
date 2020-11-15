@@ -78,7 +78,8 @@ router.post("/api/login", (req, res) => {
                   firstName: foundUser.firstName,
                   lastName: foundUser.lastName,
                 },
-                process.env.SECRET
+                process.env.SECRET,
+                {expiresIn: '1h'},
               );
               res.json({
                 error: false,
