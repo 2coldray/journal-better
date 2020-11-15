@@ -65,3 +65,7 @@ body {
   margin-top: 40px;
   width: 75%;
 }
+
+.auth-text-font{
+  font-family: 'Bitter', serif;
+}
