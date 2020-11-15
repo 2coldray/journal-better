@@ -146,13 +146,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-sm-12 text-center">
-                <button type="button" className="btn btn-info" id="home-button">
-                  <Link to="/week" className="week-link">
-                    Let's Get Started!
-                  </Link>
-                </button>
+            <div className='row'>
+              <div className='col-sm-12 text-center'>
+                <button type='button' className='btn btn-info' id="home-button">
+                  <Link to="/Week" className="week-link">Let's Get Started!</Link>
+
+               </button>
                 <br />
                 <br />
               </div>
