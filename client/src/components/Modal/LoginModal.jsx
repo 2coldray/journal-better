@@ -1,3 +1,4 @@
+import "./Modal.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
@@ -47,7 +48,7 @@ const LoginModal = () => {
             </Button>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="modal-header">
                     <Modal.Title className="ml-auto">Already a Member?</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

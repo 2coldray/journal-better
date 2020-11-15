@@ -95,7 +95,7 @@ const DayJournal = (props) => {
                     <textarea
                       className='form-control'
                       id='eform-control'
-                      rows='7'
+                      rows='10'
                       value={plans}
                       onChange={handlePlansInputChange}
                     ></textarea>
