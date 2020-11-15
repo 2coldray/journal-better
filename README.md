@@ -3,28 +3,41 @@
 ## Description
 
 Journal Better is a journaling app that allows the user to keep track of their specific goals for any day. They are given access to all seven days for that week, where they can organize how they will be spending their time, and edit whenever. At the end of the week, the user can reflect on how their week went, and if all goals were achieved, or if not, what can be done to do better going forward. Every jornal entry has an accurate date, for precise keeping, which can make looking back simple. Essentially, the user will get out what they put in, and every experience will differ.
-
+  ## Table of Contents
+  [installation](#Installation)
+  <br/>
+  [usage](#Usage)
+  <br/>
+  [contributions](#Contributions)
+  <br/>
+  [questions](#Questions)
+  <br/>
+  [license](#License)
  ## Installation
 
 Journal Better is deployed on [Heroku](https://journal-better.herokuapp.com/).
-<br/><br/>
+<br/>
+## Usage
 The image below shows the startup of the app. This is where the user will either `sign-up` or `login` to continue.
 <br/><br/>
 ![Application Screenshot](./client/src/assets/images/sc1.png)
 <br/><br/><br/>
-This shot shows the user that they will be redirected to login with their Steam credentials
+This page shows the current week, where the user can see notes they have made concerning plans they have made for those days as well as navigate directly to that day's journal entry. 
 <br/><br/>
-![Application Screenshot]()
-<br/><br/><br/>
-Here we see how that when the user logins, they are redirected to the home page, which will generate a their a list with with their friends and game, pulled from Steam.
+![Application Screenshot](client\src\assets\images\week.png)
 <br/><br/>
-![Application Screenshot]()
-<br/><br/><br/>
-We see when the user selects one of their friends, is then redirected to their profile, which they will be able to rate and give a gamer attribute. 
+Today's Summary page is where the user can make notes about what they intend to do that day on the left. At the end of the day, they make notes on whether or not they did what they said they were going to and compare.
 <br/><br/>
-![Application Screenshot]()
+![Application Screenshot](client\src\assets\images\compare.png)
 <br/><br/>
-
+Once the user has compared the two and has their thoughts organized, it is time to journal. The journal can be saved by clicking on the Save Entry button at the bottom of the text area.
+<br/><br/>
+![Application Screenshot](client\src\assets\images\journal.png)
+<br/><br/>
+The history page allows the user to access past journal entries and read, edit, or delete them. 
+<br/><br/>
+![Application Screenshot](client\src\assets\images\history.png)
+<br/><br/>
 
 ## Questions
 
