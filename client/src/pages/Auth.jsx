@@ -10,17 +10,17 @@ const Auth = () => {
     <>
       <Header2 />
       <div className='auth'>
-        <h2 className='text-center' id='auth-text'>
-          Break through the "thought loops" and solve problems.
+        <h2 className='text-center auth-text-font' id='auth-text'>
+          Break through "thought loops" and solve problems.
       </h2>
         <br />
-        <h2 className='text-center'>
+        <h2 className='text-center auth-text-font'>
           Compare how you want to live with how you actually live.
       </h2>
         <br />
-        <h2 className='text-center'>Gain awareness, set goals</h2>
+        <h2 className='text-center auth-text-font'>Gain awareness, set goals</h2>
         <br />
-        <h2 className='text-center'>Journal Better</h2>
+        <h2 className='text-center auth-text-font'>Journal Better</h2>
         <br />
         <div className='row'>
           <div className='col-sm-12 text-center'>
