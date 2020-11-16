@@ -24,11 +24,18 @@ function WeekCard(props) {
       {notes.length ? (
         notes.map((noteName) => (
           <ListGroup.Item action key={noteName._id} id={noteName._id}>
+            {notes.length === 0 && (
+              <div class='d-flex justify-content-center'>
+                <div class='spinner-border' role='status'>
+                  <span class='sr-only'>Loading...</span>
+                </div>
+              </div>
+            )}
             {noteName.name}
           </ListGroup.Item>
         ))
       ) : (
-        <ListGroup.Item action aria-rowspan='3'>
+        <ListGroup.Item action>
           Hey write down some plans for today
         </ListGroup.Item>
       )}

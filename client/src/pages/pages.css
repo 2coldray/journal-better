@@ -25,31 +25,17 @@ body {
   background-position: center;
   height: auto;
   width: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.App {
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+body::-webkit-scrollbar {
+  display: none;
 }
-.App-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 40px;
-}
-@media (min-width: 650px ) {
-  .App {
-      background-position: center center;
-  }
-  .App-content {
-      align-items: flex-end;
-      justify-content: center;
-  }
-}
+/* .App::-webkit-scrollbar{
+  display: none;
+} */
 
 #home-card-2 {
   font-weight: bold;
@@ -94,10 +80,16 @@ body {
   width: 75%;
 }
 
-.auth-text-font{
-  font-family: 'Bitter', serif;
+.auth-text-font {
+  font-family: "Bitter", serif;
 }
 
-.auth-card{
-  opacity: .8;
+.auth-card {
+  opacity: 0.8;
+}
+
+.grow:hover {
+  box-shadow: 8px 8px 5px blue;
+  transform: scale(1.05);
+  transition: 0.6s;
 }

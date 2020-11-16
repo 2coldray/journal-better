@@ -89,9 +89,11 @@ const DayJournal = (props) => {
                     <h2>{props.location.Date}</h2>
                   </label>
                   <div className='form-group mx-auto'>
-                    <label htmlFor='exampleFormControlTextarea1'><strong>
-                      Your goals for today</strong>
+                    <label htmlFor='Journal'><h4><strong>
+                      What are your full thoughts on today?</strong></h4>
                     </label>
+                    <br/>
+                    <hr/>
                     <textarea
                       className='form-control'
                       id='eform-control'
