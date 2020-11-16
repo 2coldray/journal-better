@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
-<<<<<<< HEAD
 import AuthContext from "../../context/AuthContext";
 import jwtModule from "jsonwebtoken";
-=======
 import { BiLogOut } from 'react-icons/bi';
->>>>>>> 67cae6f4b0f40d82a49407c8e7987c6f409491bc
 
 const Header = () => {
   const { Today } = useContext(DateContext);

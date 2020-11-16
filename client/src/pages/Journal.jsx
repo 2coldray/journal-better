@@ -41,7 +41,7 @@ const Journal = () => {
 
 
   useEffect(() => {
-    getAllEntries();
+    getToday();
   }, []);
 
   // Functions to get journal data from back end
@@ -133,7 +133,7 @@ const Journal = () => {
               <>
                 <Card
                   key={entry._id}
-                  className='mb-2 col-sm-10 col-lg-10 shadow-lg'
+                  className='grow mb-2 col-sm-12 col-lg-10 shadow-lg mt-2'
                 >
                   <Card.Header as='h5'>{entry.datetime}</Card.Header>
                   <Card.Body>
