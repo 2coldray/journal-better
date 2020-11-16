@@ -162,29 +162,6 @@ const Journal = () => {
                       </button>
                   </Card.Body>
                 </Card>
-                {/* <h4 id='list-item-2'> {entry.datetime}</h4>
-                <p>{entry.entry}</p>
-                <Link
-                  to={{
-                    pathname: "/DayJournal",
-                    id: entry._id,
-                    entry: entry.entry,
-                    Date: entry.datetime,
-                  }}
-                >
-                  <button type='button' className='btn btn-primary'>
-                    {" "}
-                    Edit{" "}
-                  </button>
-                </Link>
-                <button
-                  type='submit'
-                  className='btn btn-danger'
-                  onClick={() => deleteJournal(entry._id)}
-                >
-                  {" "}
-                  Delete{" "}
-                </button> */}
               </>
             ))}
           </div>
