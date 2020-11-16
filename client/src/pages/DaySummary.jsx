@@ -126,7 +126,7 @@ const DaySummary = (props) => {
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How do you want to live today?</Card.Header>
               <Card.Body>
-                <Card.Title as='h5'>Special title treatment</Card.Title>
+                <Card.Title as='h5'>{props.location.Date}</Card.Title>
                 <ListGroup>
                   {inputList.length ? (
                     inputList.map((x, i) => (
@@ -193,7 +193,7 @@ const DaySummary = (props) => {
             <Card className='shadow-lg'>
               <Card.Header as='h4'>How did you live today?</Card.Header>
               <Card.Body>
-                <Card.Title as='h5'>Special title treatment</Card.Title>
+                <Card.Title as='h5'>{props.location.Date}</Card.Title>
                 <ListGroup>
                   {inputList2.length ? (
                     inputList2.map((x, i) => (
