@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import DateContext from "../../context/DateContext";
 import logo from "../../assets/images/journal-better.png";
+<<<<<<< HEAD
 import AuthContext from "../../context/AuthContext";
 import jwtModule from "jsonwebtoken";
+=======
+import { BiLogOut } from 'react-icons/bi';
+>>>>>>> 67cae6f4b0f40d82a49407c8e7987c6f409491bc
 
 const Header = () => {
   const { Today } = useContext(DateContext);
@@ -64,7 +68,9 @@ const Header = () => {
           </li>
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                <i className="fas fa-sign-out-alt mr-1"></i>
+                {/* <i className="fas fa-sign-out-alt mr-1"></i> */}
+                {/* <ion-icon name="exit-outline mr-2"></ion-icon> */}
+                <BiLogOut  className="mr-1" />
                 Logout
               </Link>
             </li>
